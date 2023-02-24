@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 import { ReactComponent as VideoIcon } from "./images/VideoIcon.svg";
 import { ReactComponent as SearchIcon } from "./images/SearchIcon.svg";
+import { NavLink } from 'react-router-dom';
 const bpMobile = ({ theme }) => theme.breakpoint.mobile;
+
+export const StyledNavLink = styled(NavLink)`
+
+`;
 
 export const StyledHeader = styled.header`
     background: ${({ theme }) => theme.color.woodsmoke};

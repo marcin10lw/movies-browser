@@ -12,6 +12,7 @@ import {
     SearchBarIcon,
     SearchBarInput,
     ButtonsWrapper,
+    StyledNavLink,
 } from "./styled";
 
 const Header = () => {
@@ -28,8 +29,12 @@ const Header = () => {
                         <TitleText>Movies Browser</TitleText>
                     </TitleWrapper>
                     <ButtonsWrapper>
-                        <HeaderButton>MOVIES</HeaderButton>
-                        <HeaderButton>PEOPLE</HeaderButton>
+                        <StyledNavLink to="/movies">
+                            <HeaderButton>MOVIES</HeaderButton>
+                        </StyledNavLink>
+                        <StyledNavLink to="/people">
+                            <HeaderButton>PEOPLE</HeaderButton>
+                        </StyledNavLink>
                     </ButtonsWrapper>
                 </Wrapper>
                 <SearchBar>

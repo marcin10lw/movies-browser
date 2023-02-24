@@ -1,19 +1,35 @@
 import Pagination from "./common/Pagination";
 import Section from "./common/Section";
-import MovieList from "./feautures/MovieList";
+import MovieList from "./features/MovieList";
+import ActorTile from "./features/actors/ActorTile";
 import Header from "./common/Header";
-import { HashRouter } from "react-router-dom";
+import { HashRouter, Redirect, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
     <HashRouter>
       <Header />
-      <Section
-        title="Popular movies"
-        body={
-          <MovieList />
-        }
-      />   
+      <Switch>
+        <Route path="/movies">
+          <Section
+            title="Popular movies"
+            body={
+              <MovieList />
+            }
+          />
+        </Route>
+        <Route path="/people">
+          <Section
+            title="Popular people"
+            body={
+              <ActorTile />
+            }
+          />
+        </Route>
+        <Route path="/">
+          <Redirect to="/movies" />
+        </Route>
+      </Switch>
       <Pagination />
     </HashRouter>
   );
