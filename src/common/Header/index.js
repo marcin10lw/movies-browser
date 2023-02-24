@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { NavLink } from 'react-router-dom';
 import {
     StyledHeader,
     GridWrapper,
@@ -13,6 +12,7 @@ import {
     SearchBarIcon,
     SearchBarInput,
     ButtonsWrapper,
+    StyledNavLink,
 } from "./styled";
 
 const Header = () => {
@@ -29,12 +29,12 @@ const Header = () => {
                         <TitleText>Movies Browser</TitleText>
                     </TitleWrapper>
                     <ButtonsWrapper>
-                        <NavLink to="/movies">
+                        <StyledNavLink to="/movies">
                             <HeaderButton>MOVIES</HeaderButton>
-                        </NavLink>
-                        <NavLink to="/people">
+                        </StyledNavLink>
+                        <StyledNavLink to="/people">
                             <HeaderButton>PEOPLE</HeaderButton>
-                        </NavLink>
+                        </StyledNavLink>
                     </ButtonsWrapper>
                 </Wrapper>
                 <SearchBar>

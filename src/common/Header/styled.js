@@ -1,7 +1,15 @@
 import styled from 'styled-components';
 import { ReactComponent as VideoIcon } from "./images/VideoIcon.svg";
 import { ReactComponent as SearchIcon } from "./images/SearchIcon.svg";
+import { NavLink } from 'react-router-dom';
 const bpMobile = ({ theme }) => theme.breakpoint.mobile;
+
+export const StyledNavLink = styled(NavLink)`
+    &.active{
+        border: 1px solid ${({ theme }) => theme.color.white};
+        border-radius: 24px;
+    }
+`;
 
 export const StyledHeader = styled.header`
     background: ${({ theme }) => theme.color.woodsmoke};
@@ -76,7 +84,6 @@ export const HeaderButton = styled.button`
     color: ${({ theme }) => theme.color.white};
     background: none;
     border: none;
-    /* border: 1px solid ${({ theme }) => theme.color.white}; */
     border-radius: 24px;
     font-size: 14px;
     font-weight: 600;
