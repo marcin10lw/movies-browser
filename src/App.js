@@ -3,7 +3,7 @@ import Section from "./common/Section";
 import MovieList from "./features/MovieList";
 import ActorTile from "./features/actors/ActorTile";
 import Header from "./common/Header";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 
 function App() {
@@ -25,6 +25,7 @@ function App() {
               <ActorTile />
             } />
         } />
+        <Route path="/" element={<Navigate to="/movies" />} />
       </Routes>
       <Pagination />
     </>
