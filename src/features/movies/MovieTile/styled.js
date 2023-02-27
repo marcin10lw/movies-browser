@@ -41,6 +41,7 @@ export const Poster = styled.img`
   @media (max-width: ${bpMobile}px) {
     width: 114px;
     height: 169px;
+    flex-shrink: 0;
   }
 `;
 
@@ -86,5 +87,6 @@ export const Dummy = styled.div`
     width: 114px;
     height: 169px;
     background-size: auto;
+    flex-shrink: 0;
   }
 `;

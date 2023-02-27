@@ -6,12 +6,12 @@ import {
   DummyActor,
 } from "./styled";
 
-const ActorTile = ({ image, name, role }) => {
+const ActorTile = ({ poster, name, role }) => {
   return (
     <StyledActorTile>
-      {image ? <ActorImage src={image} alt={name} /> : <DummyActor />}
-      <ActorName>Liu Yifei</ActorName>
-      <Role>Mulan</Role>
+      {poster ? <ActorImage src={`https://image.tmdb.org/t/p/w342${poster}`} alt={name} /> : <DummyActor />}
+      <ActorName>{name}</ActorName>
+      <Role>{role}</Role>
     </StyledActorTile>
   );
 };

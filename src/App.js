@@ -1,7 +1,6 @@
 import Pagination from "./common/Pagination";
-import TilesSection from "./common/TilesSection";
 import PopularMoviesPage from "./features/movies/PopularMoviesPage";
-import ActorTile from "./features/people/ActorTile";
+import PopularPeoplePage from "./features/people/PopularPeoplePage";
 import Header from "./common/Header";
 import { Main } from "./common/Main";
 import { Routes, Route, Navigate } from "react-router-dom";
@@ -13,13 +12,7 @@ function App() {
       <Main>
         <Routes>
           <Route path="/movies" element={<PopularMoviesPage />} />
-          <Route
-            path="/people"
-            element={
-              <TilesSection title="Popular people">
-                <ActorTile />
-              </TilesSection>
-            }
+          <Route path="/people" element={<PopularPeoplePage />}
           />
           <Route path="/" element={<Navigate to="/movies" />} />
         </Routes>
