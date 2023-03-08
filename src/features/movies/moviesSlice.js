@@ -7,6 +7,7 @@ const moviesSlice = createSlice({
     genres: [],
     currentPage: 1,
     fetchingStatus: "loading",
+    query: "",
   },
   reducers: {
     setGenres: (state, { payload: genres }) => {
@@ -21,11 +22,14 @@ const moviesSlice = createSlice({
     },
     fetchMovies: (state) => {
       state.fetchingStatus = "loading";
-    },
-    fetchGenres: () => {},
+     },
+    fetchGenres: () => { },
     updateMoviesCurrentPage: (state, { payload: currentPage }) => {
       state.currentPage = currentPage;
     },
+    isQuery: (state, { payload: query }) => {
+      state.query = query;
+    }
   },
 });
 
@@ -36,6 +40,7 @@ export const {
   fetchMovies,
   fetchGenres,
   updateMoviesCurrentPage,
+  isQuery,
 } = moviesSlice.actions;
 
 export const selectMoviesState = (state) => state.movies;
@@ -45,6 +50,7 @@ export const selectMoviesCurrentPage = (state) =>
 export const selectGenres = (state) => selectMoviesState(state).genres;
 export const selectFetchingStatus = (state) =>
   selectMoviesState(state).fetchingStatus;
+export const selectQuery = (state) => selectMoviesState(state).query;
 
 export const selectGenreByIds = (state, genreIds) => {
   const genres = selectGenres(state);
