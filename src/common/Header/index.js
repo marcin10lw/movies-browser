@@ -25,10 +25,10 @@ const Header = () => {
             searchParams.delete(searchQueryParamName);
             setSearchParams(searchParams);
         } else {
-            setSearchParams({ [searchQueryParamName]: target.value })
+            setSearchParams({ [searchQueryParamName]: target.value });
         }
     };
-
+ 
     return (
         <StyledHeader>
             <GridWrapper>
