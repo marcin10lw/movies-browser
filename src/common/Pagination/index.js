@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
+
 import {
   StyledPagination,
   ButtonsWrapper,
@@ -11,35 +12,39 @@ import {
   ButtonText,
 } from "./styled";
 
-const Pagination = () => {
-  const [currentPage, setCurrentPage] = useState(1);
+const Pagination = ({ location }) => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const currentPage = Number(searchParams.get("page")) || 1;
+  const totalPages = 500;
 
   const onGoToFirst = () => {
     if (currentPage !== 1) {
-      setCurrentPage(1);
+      setSearchParams({ page: 1 });
     }
   };
 
   const onGoToPrevious = () => {
     if (currentPage !== 1) {
-      setCurrentPage((currentPage) => currentPage - 1);
+      const previousPage = currentPage - 1;
+      setSearchParams({ page: previousPage });
     }
   };
 
   const onGoToNext = () => {
-    if (currentPage !== 500) {
-      setCurrentPage((currentPage) => currentPage + 1);
+    if (currentPage !== totalPages) {
+      const nextPage = currentPage + 1;
+      setSearchParams({ page: nextPage });
     }
   };
 
   const onGoToLast = () => {
-    if (currentPage !== 500) {
-      setCurrentPage(500);
+    if (currentPage !== totalPages) {
+      setSearchParams({ page: totalPages });
     }
   };
 
   return (
-    <StyledPagination>
+    <StyledPagination location={location}>
       <ButtonsWrapper>
         <Button disabled={currentPage === 1} onClick={onGoToFirst}>
           <LeftArrow mobile="true" />
@@ -55,14 +60,14 @@ const Pagination = () => {
         <InfoText>Page</InfoText>
         <InfoNumber>{currentPage}</InfoNumber>
         <InfoText>of</InfoText>
-        <InfoNumber>500</InfoNumber>
+        <InfoNumber>{totalPages}</InfoNumber>
       </PageInfo>
       <ButtonsWrapper>
-        <Button disabled={currentPage === 500} onClick={onGoToNext}>
+        <Button disabled={currentPage === totalPages} onClick={onGoToNext}>
           <ButtonText>Next</ButtonText>
           <RightArrow />
         </Button>
-        <Button disabled={currentPage === 500} onClick={onGoToLast}>
+        <Button disabled={currentPage === totalPages} onClick={onGoToLast}>
           <ButtonText>Last</ButtonText>
           <RightArrow />
           <RightArrow mobile="true" />

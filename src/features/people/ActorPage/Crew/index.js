@@ -1,5 +1,4 @@
 import { useSelector } from "react-redux";
-import { Container } from "../../../../common/Container";
 import { GridList } from "../../../../common/GridList";
 import TilesSection from "../../../../common/TilesSection";
 import MovieTile from "../../../movies/MovieTile";
@@ -18,14 +17,10 @@ const Crew = () => {
           {moviesCrew.map((movie) => (
             <li key={movie.credit_id}>
               <MovieTile
-                title={movie.name}
+                title={movie.title}
                 genreIds={movie.genre_ids}
                 poster={movie.poster_path}
-                subtitle={`${movie.job} ${
-                  movie.first_air_date
-                    ? `(${movie.first_air_date.slice(0, 4)})`
-                    : ""
-                }`}
+                subtitle={`${movie.job} ${movie.release_date.slice(0, 4)}`}
               />
             </li>
           ))}

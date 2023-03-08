@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 import dummyActorImage from "./images/dummyIcon.svg";
 
@@ -32,9 +32,13 @@ export const ActorImage = styled.img`
   width: 100%;
   object-fit: cover;
   border-radius: 5px;
+  aspect-ratio: 2 / 3;
 
-  @media (max-width: ${bpMobile}px) {
-  }
+  ${({ loaded }) =>
+    !loaded &&
+    css`
+      display: none;
+    `}
 `;
 
 export const ActorName = styled.h3`
@@ -74,4 +78,17 @@ export const DummyActor = styled.div`
   @media (max-width: ${bpMobile}px) {
     width: 100%;
   }
+`;
+
+export const ActorStandbyWrapper = styled.div`
+  ${({ loaded }) =>
+    loaded &&
+    css`
+      display: none;
+    `}
+`;
+
+export const ActorStandbyPoster = styled(DummyActor)`
+  background-color: transparent;
+  background: none;
 `;

@@ -17,11 +17,12 @@ function* fetchGenresHandler() {
   }
 }
 
-function* fetchMoviesHandler() {
+function* fetchMoviesHandler({ payload }) {
   try {
-    const movies = yield call(getPopularData, "movie");
+    const currentPage = payload.currentPage;
+    const data = yield call(getPopularData, "movie", currentPage);
     yield delay(500);
-    yield put(setFetchingToSucces(movies));
+    yield put(setFetchingToSucces(data));
   } catch (error) {
     yield delay(500);
     yield put(setFetchingToFail());

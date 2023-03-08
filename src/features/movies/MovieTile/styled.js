@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import posterImage from "./images/video.svg";
 
 const bpMobile = ({ theme }) => theme.breakpoint.mobile;
@@ -46,11 +46,18 @@ export const MovieInfo = styled.div`
 export const Poster = styled.img`
   border-radius: 5px;
   object-fit: cover;
+  aspect-ratio: 2 / 3;
 
   @media (max-width: ${bpMobile}px) {
     max-width: 114px;
     flex-shrink: 0;
   }
+
+  ${({ loaded }) =>
+    !loaded &&
+    css`
+      display: none;
+    `}
 `;
 
 export const Title = styled.h3`
@@ -97,4 +104,17 @@ export const Dummy = styled.div`
     background-size: auto;
     flex-shrink: 0;
   }
+`;
+
+export const MoviesStandbyWrapper = styled.div`
+  ${({ loaded }) =>
+    loaded &&
+    css`
+      display: none;
+    `}
+`;
+
+export const MovieStandbyPoster = styled(Dummy)`
+  background-color: transparent;
+  background: none;
 `;

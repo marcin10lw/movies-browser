@@ -7,6 +7,7 @@ import {
   BirthInfo,
   Name,
   SpecificInfo,
+  OptionalInfo,
 } from "./styled";
 
 const About = () => {
@@ -22,11 +23,13 @@ const About = () => {
         <Name>{actorInfo.name}</Name>
         <BirthInfo>
           <div>
-            <SpecificInfo>Date of birth:</SpecificInfo>
-            {actorInfo.birthday}
+            <SpecificInfo>
+              <OptionalInfo>date of</OptionalInfo> birth:
+            </SpecificInfo>
+            {actorInfo.birthday.replaceAll("-", ".")}
           </div>
           <div>
-            <SpecificInfo>Place of birth</SpecificInfo>
+            <SpecificInfo>Place of birth:</SpecificInfo>
             {actorInfo.place_of_birth}
           </div>
         </BirthInfo>

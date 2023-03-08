@@ -57,8 +57,23 @@ export const BirthInfo = styled.div`
 `;
 
 export const SpecificInfo = styled.span`
+  display: inline-block;
   color: ${({ theme }) => theme.color.stormGrey};
   margin: 0 10px 0 0;
+
+  &::first-letter {
+    text-transform: capitalize;
+  }
+
+  @media (max-width: ${bpMobile}px) {
+    margin: 0 4px 0 0;
+  }
+`;
+
+export const OptionalInfo = styled.span`
+  @media (max-width: ${bpMobile}px) {
+    display: none;
+  }
 `;
 
 export const ActorBio = styled.p`

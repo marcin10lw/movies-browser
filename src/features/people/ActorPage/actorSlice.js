@@ -24,8 +24,11 @@ const actorSlice = createSlice({
   },
 });
 
-export const { fetchActorDetails, fetchActorDetailsSuccess } =
-  actorSlice.actions;
+export const {
+  fetchActorDetails,
+  fetchActorDetailsSuccess,
+  fetchActorDetailsFail,
+} = actorSlice.actions;
 
 export const selectActorState = (state) => state.actor;
 export const selectActorDetails = (state) =>

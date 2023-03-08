@@ -1,18 +1,17 @@
 import { call, put, delay, takeLatest } from "redux-saga/effects";
 import { getPopularData } from "../getData";
 import {
-  setPeople,
   setFetchingToSucces,
   setFetchingToFail,
   fetchPeople,
 } from "./peopleSlice";
 
-function* fetchPeopleHandler() {
+function* fetchPeopleHandler({ payload }) {
   try {
-    const people = yield call(getPopularData, "person");
-    yield put(setPeople(people));
+    const currentPage = payload.currentPage;
+    const data = yield call(getPopularData, "person", currentPage);
     yield delay(500);
-    yield put(setFetchingToSucces());
+    yield put(setFetchingToSucces(data));
   } catch (error) {
     yield delay(500);
     yield put(setFetchingToFail());

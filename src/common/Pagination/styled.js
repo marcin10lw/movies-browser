@@ -13,8 +13,27 @@ export const StyledPagination = styled.section`
 
   @media (max-width: ${bpMobile}px) {
     gap: 8px;
-    margin: 0 0 31px;
   }
+
+  ${({ location }) =>
+    location === "popularMovies" &&
+    css`
+      margin: 40px 0 63px;
+
+      @media (max-width: ${bpMobile}px) {
+        margin: 32px 0 0;
+      }
+    `}
+
+  ${({ location }) =>
+    location === "popularPeople" &&
+    css`
+      margin: 56px 0 83px;
+
+      @media (max-width: ${bpMobile}px) {
+        margin: 50px 0 9px;
+      }
+    `}
 `;
 
 export const ButtonsWrapper = styled.div`

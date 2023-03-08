@@ -5,35 +5,43 @@ const moviesSlice = createSlice({
   initialState: {
     movies: [],
     genres: [],
+    currentPage: 1,
     fetchingStatus: "loading",
   },
   reducers: {
     setGenres: (state, { payload: genres }) => {
       state.genres = genres;
     },
-    setFetchingToSucces: (state, { payload: movies }) => {
+    setFetchingToSucces: (state, { payload }) => {
+      state.movies = payload.results;
       state.fetchingStatus = "success";
-      state.movies = movies;
     },
     setFetchingToFail: (state) => {
       state.fetchingStatus = "fail";
     },
-    fetchMovies: () => {},
+    fetchMovies: (state) => {
+      state.fetchingStatus = "loading";
+    },
     fetchGenres: () => {},
+    updateMoviesCurrentPage: (state, { payload: currentPage }) => {
+      state.currentPage = currentPage;
+    },
   },
 });
 
 export const {
-  setMovies,
   setFetchingToSucces,
   setFetchingToFail,
   setGenres,
   fetchMovies,
   fetchGenres,
+  updateMoviesCurrentPage,
 } = moviesSlice.actions;
 
 export const selectMoviesState = (state) => state.movies;
 export const selectMovies = (state) => selectMoviesState(state).movies;
+export const selectMoviesCurrentPage = (state) =>
+  selectMoviesState(state).currentPage;
 export const selectGenres = (state) => selectMoviesState(state).genres;
 export const selectFetchingStatus = (state) =>
   selectMoviesState(state).fetchingStatus;
