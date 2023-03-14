@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { ReactComponent as ErrorIcon } from "./images/ErrorIcon.svg";
 
@@ -11,6 +12,7 @@ export const StyledErrorPage = styled.div`
 
     @media (max-width: ${bpMobile}px) {
         gap: 14px;
+        margin-top: 65px;
     }
 `;
 
@@ -53,7 +55,7 @@ export const ErrorDescription = styled.p`
     }
 `;
 
-export const Button = styled.button`
+export const Button = styled(NavLink)`
     font-weight: 700;
     font-size: 14px;
     font-family: 'Open Sans';
@@ -63,6 +65,7 @@ export const Button = styled.button`
     border-radius: 5px;
     color: ${({ theme }) => theme.color.white};
     background-color: ${({ theme }) => theme.color.scienceBlue};
+    text-decoration: none;
 
     &:hover{
         cursor: pointer;

@@ -15,7 +15,7 @@ const ErrorPage = () => (
       <ErrorDescription>
         Please check your network connection and try again
       </ErrorDescription>
-      <Button>Back to home page</Button>
+      <Button to="/">Back to home page</Button>
     </Wrapper>
   </StyledErrorPage>
 );
