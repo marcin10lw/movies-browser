@@ -1,6 +1,18 @@
 import styled from "styled-components";
+import posterImage from "../../DummyMovie/DummyIcon.svg";
 
 const bpMobile = ({ theme }) => theme.breakpoint.mobile;
+
+export const Dummy = styled.div`
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  border-radius: 5px;
+  grid-area: p;
+  background-color: ${({ theme }) => theme.color.silver};
+  background-image: url(${posterImage});
+  background-repeat: no-repeat;
+  background-position: center;
+`;
 
 export const StyledAbout = styled.div`
   margin-top: 64px;

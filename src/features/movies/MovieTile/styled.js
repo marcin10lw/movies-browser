@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
-import posterImage from "./images/video.svg";
+import posterImage from "../DummyMovie/DummyIcon.svg";
 
 const bpMobile = ({ theme }) => theme.breakpoint.mobile;
 
