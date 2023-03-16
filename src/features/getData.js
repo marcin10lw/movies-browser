@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const baseUrl = "https://api.themoviedb.org/3";
-const apiKey = "api_key=0e017d1cf3aa44c76887c24c592892f0";
+const apiKey = `api_key=${process.env.REACT_APP_API_KEY}`;
 
 export const getPopularData = async (dataName, currentPage) => {
   const { data } = await axios.get(
