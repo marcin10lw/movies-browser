@@ -24,6 +24,7 @@ function App() {
         <Route path="/people/:id" element={<ActorPage />} />
         <Route path="/movies/:id" element={<MoviePage />} />
         <Route path="/" element={<Navigate to="/movies" />} />
+        <Route path="*" element={<Navigate to="/movies" />} />
       </Routes>
     </>
   );
