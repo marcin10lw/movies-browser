@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { ReactComponent as VideoIcon } from "./images/VideoIcon.svg";
 import { ReactComponent as SearchIcon } from "./images/SearchIcon.svg";
 const bpMobile = ({ theme }) => theme.breakpoint.mobile;
@@ -21,7 +21,9 @@ export const StyledHeader = styled.header`
     `}
 `;
 
-export const TitleWrapper = styled.div`
+export const TitleLink = styled(Link)`
+  text-decoration: none;
+  color: ${({ theme }) => theme.color.white};
   display: flex;
   gap: 12px;
   align-items: center;

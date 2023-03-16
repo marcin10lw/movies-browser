@@ -1,15 +1,18 @@
 import { useSelector } from "react-redux";
 import { selectMovieCast } from "../movieSlice";
 import { GridList } from "../../../../common/GridList";
-import TilesSection from "../../../../common/TilesSection";
 import ActorTile from "../../../people/ActorTile";
+import { SectionTitle } from "../../../../common/SectionTitle";
 
 const Cast = () => {
   const movieCast = useSelector(selectMovieCast);
 
   return (
     movieCast.length > 0 && (
-      <TilesSection location="detailsPage" title="Cast">
+      <section>
+        <SectionTitle as="h2" detailsPage>
+          Cast
+        </SectionTitle>
         <GridList popularPeople>
           {movieCast.map((movie) => (
             <li key={movie.cast_id}>
@@ -22,7 +25,7 @@ const Cast = () => {
             </li>
           ))}
         </GridList>
-      </TilesSection>
+      </section>
     )
   );
 };

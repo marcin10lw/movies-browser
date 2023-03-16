@@ -1,15 +1,18 @@
 import { useSelector } from "react-redux";
 import { selectMovieCrew } from "../movieSlice";
-import TilesSection from "../../../../common/TilesSection";
 import { GridList } from "../../../../common/GridList";
 import ActorTile from "../../../people/ActorTile";
+import { SectionTitle } from "../../../../common/SectionTitle";
 
 const Crew = () => {
   const movieCrew = useSelector(selectMovieCrew);
 
   return (
     movieCrew.length > 0 && (
-      <TilesSection location="detailsPage" title="Crew">
+      <section>
+        <SectionTitle as="h2" detailsPage>
+          Crew
+        </SectionTitle>
         <GridList popularPeople>
           {movieCrew.map((movie) => (
             <li key={movie.credit_id}>
@@ -22,7 +25,7 @@ const Crew = () => {
             </li>
           ))}
         </GridList>
-      </TilesSection>
+      </section>
     )
   );
 };

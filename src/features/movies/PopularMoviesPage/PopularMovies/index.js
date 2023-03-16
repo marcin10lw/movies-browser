@@ -1,11 +1,11 @@
 import { Container } from "../../../../common/Container";
 import { GridList } from "../../../../common/GridList";
-import TilesSection from "../../../../common/TilesSection";
 import MovieTile from "../../MovieTile";
 import { useSelector } from "react-redux";
 import { selectMovies, selectMoviesTotalResults } from "../../moviesSlice";
 import { useSearchParams } from "react-router-dom";
 import searchQueryParamName from "../../../../common/searchQueryParamName";
+import { SectionTitle } from "../../../../common/SectionTitle";
 
 const PopularMovies = () => {
   const movies = useSelector(selectMovies);
@@ -18,7 +18,8 @@ const PopularMovies = () => {
 
   return (
     <Container>
-      <TilesSection title={sectionTitle}>
+      <section>
+        <SectionTitle>{sectionTitle}</SectionTitle>
         <GridList popularMovies>
           {movies &&
             movies.map((movie) => (
@@ -35,7 +36,7 @@ const PopularMovies = () => {
               </li>
             ))}
         </GridList>
-      </TilesSection>
+      </section>
     </Container>
   );
 };
