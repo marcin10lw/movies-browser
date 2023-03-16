@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { GridList } from "../../../../common/GridList";
-import TilesSection from "../../../../common/TilesSection";
+import { SectionTitle } from "../../../../common/SectionTitle";
 import MovieTile from "../../../movies/MovieTile";
 import { selectMoviesCrew } from "../actorSlice";
 
@@ -9,10 +9,11 @@ const Crew = () => {
 
   return (
     moviesCrew.length > 0 && (
-      <TilesSection
-        location="detailsPage"
-        title={`Movies - crew (${moviesCrew.length})`}
-      >
+      <section>
+        <SectionTitle
+          as="h2"
+          detailsPage
+        >{`Movies - crew (${moviesCrew.length})`}</SectionTitle>
         <GridList popularMovies>
           {moviesCrew.map((movie) => (
             <li key={movie.credit_id}>
@@ -28,7 +29,7 @@ const Crew = () => {
             </li>
           ))}
         </GridList>
-      </TilesSection>
+      </section>
     )
   );
 };
