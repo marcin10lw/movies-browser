@@ -6,6 +6,7 @@ import { selectPeople, selectPeopleTotalResults } from "../../peopleSlice";
 import { GridList } from "../../../../common/GridList";
 import { useSearchParams } from "react-router-dom";
 import searchQueryParamName from "../../../../common/searchQueryParamName";
+import { SectionTitle } from "../../../../common/SectionTitle";
 
 const PopularPeople = () => {
   const people = useSelector(selectPeople);
@@ -18,7 +19,8 @@ const PopularPeople = () => {
 
   return (
     <Container>
-      <TilesSection title={sectionTitle}>
+      <section>
+        <SectionTitle>{sectionTitle}</SectionTitle>
         <GridList popularPeople>
           {people &&
             people.map((person) => (
@@ -31,7 +33,7 @@ const PopularPeople = () => {
               </li>
             ))}
         </GridList>
-      </TilesSection>
+      </section>
     </Container>
   );
 };

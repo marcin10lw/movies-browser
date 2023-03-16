@@ -23,14 +23,14 @@ const BackgroundPoster = () => {
               alt=""
             />
           </div>
-            <Info>
-              <Title>{movieInfo.original_title}</Title>
-              <Rating
-                location="backgroundPoster"
-                averageVotes={movieInfo.vote_average.toFixed(1)}
-                voteAmount={movieInfo.vote_count}
-              />
-            </Info>
+          <Info>
+            <Title>{movieInfo.original_title}</Title>
+            <Rating
+              location="backgroundPoster"
+              averageVotes={movieInfo.vote_average.toFixed(1)}
+              voteAmount={movieInfo.vote_count}
+            />
+          </Info>
         </StyledBackgroundPoster>
       )}
     </>
