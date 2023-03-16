@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { GridList } from "../../../../common/GridList";
-import TilesSection from "../../../../common/TilesSection";
+import { SectionTitle } from "../../../../common/SectionTitle";
 import MovieTile from "../../../movies/MovieTile";
 import { selectMoviesCast } from "../actorSlice";
 
@@ -9,10 +9,11 @@ const Cast = () => {
 
   return (
     moviesCast.length > 0 && (
-      <TilesSection
-        location="detailsPage"
-        title={`Movies - cast (${moviesCast.length})`}
-      >
+      <section>
+        <SectionTitle
+          as="h2"
+          detailsPage
+        >{`Movies - cast (${moviesCast.length})`}</SectionTitle>
         <GridList popularMovies>
           {moviesCast.map((movie) => (
             <li key={movie.credit_id}>
@@ -20,10 +21,11 @@ const Cast = () => {
                 title={movie.title}
                 genreIds={movie.genre_ids}
                 poster={movie.poster_path}
-                subtitle={`${movie.character} (${movie.release_date.slice(
-                  0,
-                  4
-                )})`}
+                subtitle={`${movie.character} ${
+                  movie.release_date
+                    ? `(${movie.release_date.slice(0, 4)})`
+                    : ""
+                }`}
                 id={movie.id}
                 score={movie.vote_average}
                 votes={movie.vote_count}
@@ -31,7 +33,7 @@ const Cast = () => {
             </li>
           ))}
         </GridList>
-      </TilesSection>
+      </section>
     )
   );
 };
