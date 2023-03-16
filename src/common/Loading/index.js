@@ -1,9 +1,9 @@
 import { StyledLoading, StyledSpinner } from "./styled";
-import TilesSection from "../TilesSection";
 import { Main } from "../Main";
 import { useSearchParams } from "react-router-dom";
 import { Container } from "../Container";
-import searchQueryParamName from "../searchQueryParamName"
+import searchQueryParamName from "../searchQueryParamName";
+import { SectionTitle } from "../SectionTitle";
 
 export const Loading = () => {
   const [searchParams] = useSearchParams({ [searchQueryParamName]: "" });
@@ -13,11 +13,12 @@ export const Loading = () => {
   return (
     <Main>
       <Container>
-        <TilesSection title={sectionTitle}>
+        <section>
+          <SectionTitle>{sectionTitle}</SectionTitle>
           <StyledLoading>
             <StyledSpinner />
           </StyledLoading>
-        </TilesSection>
+        </section>
       </Container>
     </Main>
   );
