@@ -1,5 +1,4 @@
 import { Container } from "../../../../common/Container";
-import TilesSection from "../../../../common/TilesSection";
 import ActorTile from "../../ActorTile/index";
 import { useSelector } from "react-redux";
 import { selectPeople, selectPeopleTotalResults } from "../../peopleSlice";

@@ -1,6 +1,5 @@
 import { Container } from "../../../../common/Container";
 import { GridList } from "../../../../common/GridList";
-import TilesSection from "../../../../common/TilesSection";
 import MovieTile from "../../MovieTile";
 import { useSelector } from "react-redux";
 import { selectMovies, selectMoviesTotalResults } from "../../moviesSlice";

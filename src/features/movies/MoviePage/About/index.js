@@ -3,7 +3,6 @@ import { DummyMovie } from "../../DummyMovie";
 import { selectMovieInfo } from "../movieSlice";
 import Rating from "../Rating";
 import {
-  Dummy,
   StyledAbout,
   Poster,
   InfoSection,
