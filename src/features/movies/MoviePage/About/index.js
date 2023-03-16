@@ -32,7 +32,9 @@ const About = () => {
         <DummyMovie />
       )}
       <InfoSection>
-        <Name>{movieInfo.title}</Name>
+        <Name as={`${movieInfo.backdrop_path ? "h2" : "h1"}`}>
+          {movieInfo.title}
+        </Name>
         <ReleaseYear>{movieInfo.release_date.slice(0, 4)}</ReleaseYear>
         <SpecificInfo>
           {movieInfo.production_countries[0] && (

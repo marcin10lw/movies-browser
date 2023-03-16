@@ -15,8 +15,8 @@ export const SectionTitle = styled.h1`
     font-size: 18px;
   }
 
-  ${({ location }) =>
-    location === "detailsPage" &&
+  ${({ detailsPage }) =>
+    detailsPage &&
     css`
       margin: 64px 0 24px;
 

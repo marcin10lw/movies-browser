@@ -49,7 +49,7 @@ export const InfoSection = styled.div`
   }
 `;
 
-export const Name = styled.h1`
+export const Name = styled.h2`
   font-weight: 600;
   font-size: 36px;
   line-height: 120%;
