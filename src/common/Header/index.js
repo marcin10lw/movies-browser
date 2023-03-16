@@ -5,7 +5,7 @@ import {
   GridWrapper,
   Wrapper,
   StyledVideoIcon,
-  TitleWrapper,
+  TitleLink,
   TitleText,
   StyledNavLink,
   StyledSearchIcon,
@@ -37,10 +37,10 @@ const Header = () => {
     <StyledHeader>
       <GridWrapper>
         <Wrapper>
-          <TitleWrapper>
+          <TitleLink to="/movies">
             <StyledVideoIcon />
             <TitleText>Movies Browser</TitleText>
-          </TitleWrapper>
+          </TitleLink>
           <nav>
             <NavigationList>
               <li>
