@@ -26,7 +26,9 @@ const PopularMovies = () => {
               <li key={movie.id}>
                 <MovieTile
                   title={movie.title}
-                  subtitle={movie.release_date.slice(0, 4)}
+                  subtitle={movie.release_date 
+                    ? movie.release_date.slice(0, 4) 
+                    : null}
                   poster={movie.poster_path}
                   score={movie.vote_average}
                   votes={movie.vote_count}
