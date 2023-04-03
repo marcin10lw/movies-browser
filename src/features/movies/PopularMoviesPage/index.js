@@ -3,7 +3,6 @@ import {
   fetchMovies,
   selectFetchingStatus,
   selectMoviesTotalPage,
-  updateMoviesCurrentPage,
 } from "../moviesSlice";
 import { Loading } from "../../../common/Loading";
 import { Main } from "../../../common/Main";
@@ -25,7 +24,6 @@ const PopularMoviesPage = () => {
   const query = searchParams.get(searchQueryParamName) || null;
 
   useEffect(() => {
-    dispatch(updateMoviesCurrentPage(currentPage));
     dispatch(fetchMovies({ currentPage, query }));
   }, [currentPage, query, dispatch]);
 

@@ -7,43 +7,40 @@ const moviesSlice = createSlice({
     genres: [],
     totalResults: 0,
     totalPage: 500,
-    fetchingStatus: "loading",
+    fetchingStatus: "idle",
   },
   reducers: {
+    fetchGenres: () => {},
     setGenres: (state, { payload: genres }) => {
       state.genres = genres;
     },
-    setFetchingToSucces: (state, { payload }) => {
-      state.movies = payload.results;
-      state.totalPage = payload.total_pages;
-      state.totalResults = payload.total_results;
-      if (payload.total_results === 0) {
+    fetchMovies: (state) => {
+      state.fetchingStatus = "loading";
+    },
+    fetchMoviesSuccess: (state, { payload }) => {
+      const { results, total_pages, total_results } = payload;
+      state.movies = results;
+      state.totalPage = total_pages;
+      state.totalResults = total_results;
+
+      if (total_results === 0) {
         state.fetchingStatus = "noResults";
       } else {
         state.fetchingStatus = "success";
       }
     },
-    setFetchingToFail: (state) => {
+    fetchMoviesError: (state) => {
       state.fetchingStatus = "fail";
-    },
-    fetchMovies: (state) => {
-      state.fetchingStatus = "loading";
-    },
-
-    fetchGenres: () => { },
-    updateMoviesCurrentPage: (state, { payload: currentPage }) => {
-      state.currentPage = currentPage;
     },
   },
 });
 
 export const {
-  setFetchingToSucces,
-  setFetchingToFail,
+  fetchMoviesSuccess,
+  fetchMoviesError,
   setGenres,
   fetchMovies,
   fetchGenres,
-  updateMoviesCurrentPage,
 } = moviesSlice.actions;
 
 export const selectMoviesState = (state) => state.movies;

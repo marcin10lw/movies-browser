@@ -2,8 +2,8 @@ import { call, put, delay, takeLatest, debounce } from "redux-saga/effects";
 import { getPopularData, getGenres, getDataByQuery } from "../getData";
 import {
   setGenres,
-  setFetchingToSucces,
-  setFetchingToFail,
+  fetchMoviesSuccess,
+  fetchMoviesError,
   fetchMovies,
   fetchGenres,
 } from "./moviesSlice";
@@ -24,10 +24,10 @@ function* fetchMoviesHandler({ payload }) {
     const data = yield query
       ? call(getDataByQuery, "movie", currentPage, query) 
       : call(getPopularData, "movie", currentPage);
-    yield put(setFetchingToSucces(data));
+    yield put(fetchMoviesSuccess(data));
   } catch (error) {
     yield delay(500);
-    yield put(setFetchingToFail());
+    yield put(fetchMoviesError());
   }
 }
 
