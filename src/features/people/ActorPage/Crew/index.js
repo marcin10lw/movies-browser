@@ -2,20 +2,20 @@ import { useSelector } from "react-redux";
 import { GridList } from "../../../../common/GridList";
 import { SectionTitle } from "../../../../common/SectionTitle";
 import MovieTile from "../../../movies/MovieTile";
-import { selectMoviesCrew } from "../actorSlice";
+import { selectActorMoviesCrew } from "../actorSlice";
 
 const Crew = () => {
-  const moviesCrew = useSelector(selectMoviesCrew);
+  const actorMoviesCrew = useSelector(selectActorMoviesCrew);
 
   return (
-    moviesCrew.length > 0 && (
+    actorMoviesCrew && (
       <section>
         <SectionTitle
           as="h2"
           detailsPage
-        >{`Movies - crew (${moviesCrew.length})`}</SectionTitle>
+        >{`Movies - crew (${actorMoviesCrew.length})`}</SectionTitle>
         <GridList popularMovies>
-          {moviesCrew.map((movie) => (
+          {actorMoviesCrew.map((movie) => (
             <li key={movie.credit_id}>
               <MovieTile
                 title={movie.title}

@@ -42,7 +42,7 @@ const ActorPage = () => {
         </Container>
       </Main>
     ),
-    fail: <ErrorPage />,
+    error: <ErrorPage />,
   }[pageStatus];
 };
 

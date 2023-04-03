@@ -5,10 +5,10 @@ const actorSlice = createSlice({
   initialState: {
     actorDetails: {
       actorInfo: {},
-      moviesCast: [],
-      moviesCrew: [],
+      moviesCast: null,
+      moviesCrew: null,
     },
-    status: "loading",
+    status: "idle",
   },
   reducers: {
     fetchActorDetails: (state) => {
@@ -19,7 +19,7 @@ const actorSlice = createSlice({
       state.status = "success";
     },
     fetchActorDetailsFail: (state) => {
-      state.status = "fail";
+      state.status = "error";
     },
   },
 });
@@ -34,8 +34,10 @@ export const selectActorState = (state) => state.actor;
 export const selectActorDetails = (state) =>
   selectActorState(state).actorDetails;
 export const selectActorInfo = (state) => selectActorDetails(state).actorInfo;
-export const selectMoviesCast = (state) => selectActorDetails(state).moviesCast;
-export const selectMoviesCrew = (state) => selectActorDetails(state).moviesCrew;
+export const selectActorMoviesCast = (state) =>
+  selectActorDetails(state).moviesCast;
+export const selectActorMoviesCrew = (state) =>
+  selectActorDetails(state).moviesCrew;
 export const selectActorPageStatus = (state) => selectActorState(state).status;
 
 export default actorSlice.reducer;
