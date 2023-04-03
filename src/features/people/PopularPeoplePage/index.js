@@ -3,7 +3,6 @@ import {
   fetchPeople,
   selectFetchingStatus,
   selectPeopleTotalPage,
-  updatePeopleCurrentPage,
 } from "../peopleSlice";
 import { Loading } from "../../../common/Loading";
 import { Main } from "../../../common/Main";
@@ -25,7 +24,6 @@ const PopularPeoplePage = () => {
   const query = searchParams.get(searchQueryParamName) || null;
 
   useEffect(() => {
-    dispatch(updatePeopleCurrentPage(currentPage));
     dispatch(fetchPeople({ currentPage, query }));
   }, [currentPage, query, dispatch]);
 

@@ -8,7 +8,7 @@ const Crew = () => {
   const movieCrew = useSelector(selectMovieCrew);
 
   return (
-    movieCrew.length > 0 && (
+    movieCrew && (
       <section>
         <SectionTitle as="h2" detailsPage>
           Crew

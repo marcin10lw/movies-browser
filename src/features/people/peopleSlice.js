@@ -27,25 +27,16 @@ const peopleSlice = createSlice({
     fetchPeopleError: (state) => {
       state.fetchingStatus = "error";
     },
-    updatePeopleCurrentPage: (state, { payload: currentPage }) => {
-      state.currentPage = currentPage;
-    },
   },
 });
 
-export const {
-  fetchPeopleSuccess,
-  fetchPeopleError,
-  fetchPeople,
-  updatePeopleCurrentPage,
-} = peopleSlice.actions;
+export const { fetchPeopleSuccess, fetchPeopleError, fetchPeople } =
+  peopleSlice.actions;
 
 export const selectPeopleState = (state) => state.people;
 export const selectPeople = (state) => selectPeopleState(state).people;
 export const selectFetchingStatus = (state) =>
   selectPeopleState(state).fetchingStatus;
-export const selectPeopleCurrentPage = (state) =>
-  selectPeopleState(state).currentPage;
 export const selectPeopleTotalPage = (state) =>
   selectPeopleState(state).totalPage;
 export const selectPeopleTotalResults = (state) =>
