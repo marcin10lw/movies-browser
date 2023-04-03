@@ -3,7 +3,7 @@ import { takeLatest } from "redux-saga/effects";
 import {
   fetchMovieDetails,
   fetchMovieDetailsSuccess,
-  fetchMovieDetailsFail,
+  fetchMovieDetailsError,
 } from "./movieSlice";
 import { getMovieData } from "../../getData";
 
@@ -14,7 +14,7 @@ function* fetchMovieDetailsHandler({ payload: movieId }) {
     yield put(fetchMovieDetailsSuccess(movieData));
   } catch (error) {
     yield delay(500);
-    yield put(fetchMovieDetailsFail());
+    yield put(fetchMovieDetailsError());
   }
 }
 

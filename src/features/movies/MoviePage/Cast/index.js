@@ -8,7 +8,7 @@ const Cast = () => {
   const movieCast = useSelector(selectMovieCast);
 
   return (
-    movieCast.length > 0 && (
+    movieCast && (
       <section>
         <SectionTitle as="h2" detailsPage>
           Cast

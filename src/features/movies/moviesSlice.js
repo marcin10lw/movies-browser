@@ -30,7 +30,7 @@ const moviesSlice = createSlice({
       }
     },
     fetchMoviesError: (state) => {
-      state.fetchingStatus = "fail";
+      state.fetchingStatus = "error";
     },
   },
 });

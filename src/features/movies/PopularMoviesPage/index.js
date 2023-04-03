@@ -36,7 +36,7 @@ const PopularMoviesPage = () => {
         <Pagination location="popularMovies" fetchedPages={fetchedPages} />
       </Main>
     ),
-    fail: <ErrorPage />,
+    error: <ErrorPage />,
   }[fetchingStatus];
 };
 
