@@ -1,8 +1,8 @@
 import { call, put, delay, debounce } from "redux-saga/effects";
 import { getDataByQuery, getPopularData } from "../getData";
 import {
-  setFetchingToSucces,
-  setFetchingToFail,
+  fetchPeopleSuccess,
+  fetchPeopleError,
   fetchPeople,
 } from "./peopleSlice";
 
@@ -14,10 +14,10 @@ function* fetchPeopleHandler({ payload }) {
       ? call(getDataByQuery, "person", currentPage, query)
       : call(getPopularData, "person", currentPage);
     yield delay(500);
-    yield put(setFetchingToSucces(data));
+    yield put(fetchPeopleSuccess(data));
   } catch (error) {
     yield delay(500);
-    yield put(setFetchingToFail());
+    yield put(fetchPeopleError());
   }
 }
 

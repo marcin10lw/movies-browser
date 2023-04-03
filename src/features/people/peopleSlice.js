@@ -5,26 +5,27 @@ const peopleSlice = createSlice({
   initialState: {
     people: [],
     totalResults: 0,
-    totalPage: 500,
-    fetchingStatus: "loading",
+    totalPages: 500,
+    fetchingStatus: "idle",
   },
   reducers: {
-    setFetchingToSucces: (state, { payload }) => {
-      state.people = payload.results;
-      state.page = payload.page;
-      state.totalResults = payload.total_results;
-      state.totalPage = payload.total_pages;
-      if (payload.total_results === 0) {
+    fetchPeople: (state) => {
+      state.fetchingStatus = "loading";
+    },
+    fetchPeopleSuccess: (state, { payload }) => {
+      const { results, total_results, total_pages } = payload;
+      state.people = results;
+      state.totalResults = total_results;
+      state.totalPages = total_pages;
+
+      if (total_results === 0) {
         state.fetchingStatus = "noResults";
       } else {
         state.fetchingStatus = "success";
       }
     },
-    setFetchingToFail: (state) => {
-      state.fetchingStatus = "fail";
-    },
-    fetchPeople: (state) => {
-      state.fetchingStatus = "loading";
+    fetchPeopleError: (state) => {
+      state.fetchingStatus = "error";
     },
     updatePeopleCurrentPage: (state, { payload: currentPage }) => {
       state.currentPage = currentPage;
@@ -33,11 +34,12 @@ const peopleSlice = createSlice({
 });
 
 export const {
-  setFetchingToSucces,
-  setFetchingToFail,
+  fetchPeopleSuccess,
+  fetchPeopleError,
   fetchPeople,
   updatePeopleCurrentPage,
 } = peopleSlice.actions;
+
 export const selectPeopleState = (state) => state.people;
 export const selectPeople = (state) => selectPeopleState(state).people;
 export const selectFetchingStatus = (state) =>
