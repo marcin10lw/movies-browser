@@ -37,8 +37,8 @@ export const selectPeopleState = (state) => state.people;
 export const selectPeople = (state) => selectPeopleState(state).people;
 export const selectFetchingStatus = (state) =>
   selectPeopleState(state).fetchingStatus;
-export const selectPeopleTotalPage = (state) =>
-  selectPeopleState(state).totalPage;
+export const selectPeopleTotalPages = (state) =>
+  selectPeopleState(state).totalPages;
 export const selectPeopleTotalResults = (state) =>
   selectPeopleState(state).totalResults;
 

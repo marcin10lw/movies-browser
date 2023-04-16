@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   fetchMovies,
   selectFetchingStatus,
-  selectMoviesTotalPage,
+  selectMoviesTotalPages,
 } from "../moviesSlice";
 import { Loading } from "../../../common/Loading";
 import { Main } from "../../../common/Main";
@@ -16,7 +16,7 @@ import searchQueryParamName from "../../../common/searchQueryParamName";
 
 const PopularMoviesPage = () => {
   const fetchingStatus = useSelector(selectFetchingStatus);
-  const fetchedPages = useSelector(selectMoviesTotalPage);
+  const fetchedPages = useSelector(selectMoviesTotalPages);
   const dispatch = useDispatch();
 
   const [searchParams] = useSearchParams({ page: 1 });

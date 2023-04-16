@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import posterImage from "./images/DummyIcon.svg";
+import posterImage from "./images/dummyIcon.svg";
 
 export const DummyMovie = styled.div`
   max-height: 750px;
