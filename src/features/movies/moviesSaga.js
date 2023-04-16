@@ -12,9 +12,7 @@ function* fetchGenresHandler() {
   try {
     const genres = yield call(getGenres);
     yield put(setGenres(genres));
-  } catch (error) {
-    console.error(error);
-  }
+  } catch (error) {}
 }
 
 function* fetchMoviesHandler({ payload }) {
@@ -22,7 +20,7 @@ function* fetchMoviesHandler({ payload }) {
     const currentPage = payload.currentPage;
     const query = payload.query;
     const data = yield query
-      ? call(getDataByQuery, "movie", currentPage, query) 
+      ? call(getDataByQuery, "movie", currentPage, query)
       : call(getPopularData, "movie", currentPage);
     yield put(fetchMoviesSuccess(data));
   } catch (error) {
