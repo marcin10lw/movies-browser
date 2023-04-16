@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-const bpMobile = ({ theme }) => theme.breakpoint.mobile;
-
 export const StyledAbout = styled.section`
   background-color: ${({ theme }) => theme.color.white};
   display: grid;
@@ -13,7 +11,7 @@ export const StyledAbout = styled.section`
   padding: 40px;
   column-gap: 40px;
 
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     column-gap: normal;
     gap: 16px;
     padding: 16px;
@@ -29,7 +27,7 @@ export const ActorImage = styled.img`
   object-fit: cover;
   grid-area: 1 / 1 / 4 / 2;
 
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     grid-row: 1 / 2;
   }
 `;
@@ -39,7 +37,7 @@ export const Name = styled.h1`
   font-weight: 600;
   margin: 0 0 24px;
 
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     font-size: 14px;
     margin: 0 0 16px;
   }
@@ -53,7 +51,7 @@ export const BirthInfo = styled.div`
   font-size: 18px;
   grid-area: b;
 
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     font-size: 12px;
     margin: 0 0 4px;
   }
@@ -68,13 +66,13 @@ export const SpecificInfo = styled.span`
     text-transform: capitalize;
   }
 
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     margin: 0 4px 0 0;
   }
 `;
 
 export const OptionalInfo = styled.span`
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     display: none;
   }
 `;
@@ -85,7 +83,7 @@ export const ActorBio = styled.p`
   line-height: 1.6;
   grid-area: b;
 
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     grid-area: 2 / 1 / 4 / 3;
     font-size: 14px;
   }

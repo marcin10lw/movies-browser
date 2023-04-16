@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-const bpMobile = ({ theme }) => theme.breakpoint.mobile;
-
 export const StyledBackgroundPoster = styled.div`
   background: ${({ theme }) => theme.color.black};
   color: ${({ theme }) => theme.color.white};
@@ -50,7 +48,7 @@ export const Gradient = styled.div`
       #000000 92.87%
     );
 
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     background: linear-gradient(
         269.75deg,
         #000000 8.69%,
@@ -102,7 +100,7 @@ export const Info = styled.div`
   left: 1rem;
   left: clamp(1rem, -2.25rem + 16.25vw, 17.25rem);
 
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     gap: 6px;
     bottom: 8px;
     left: 16px;
@@ -116,7 +114,7 @@ export const Title = styled.h1`
   line-height: 120%;
   margin: 0;
 
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     font-size: 24px;
   }
 `;

@@ -2,8 +2,6 @@ import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 import { DummyMovie } from "../DummyMovie";
 
-const bpMobile = ({ theme }) => theme.breakpoint.mobile;
-
 export const StyledMovieTile = styled(Link)`
   text-decoration: none;
   display: flex;
@@ -21,7 +19,7 @@ export const StyledMovieTile = styled(Link)`
     box-shadow: 0px 8px 20px 5px #a1bae2;
   }
 
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     flex-direction: row;
     align-items: center;
 
@@ -38,7 +36,7 @@ export const MovieInfo = styled.div`
   justify-content: space-between;
   height: 100%;
 
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     display: block;
   }
 `;
@@ -48,7 +46,7 @@ export const Poster = styled.img`
   object-fit: cover;
   aspect-ratio: 2 / 3;
 
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     max-width: 114px;
     flex-shrink: 0;
   }
@@ -68,7 +66,7 @@ export const Title = styled.h3`
   font-size: 22px;
   line-height: 130%;
 
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     font-size: 16px;
   }
 `;
@@ -80,7 +78,7 @@ export const Subtitle = styled.p`
   font-size: 16px;
   line-height: 150%;
 
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     font-size: 13px;
     line-height: 130%;
     margin: 4px 0 0 0;

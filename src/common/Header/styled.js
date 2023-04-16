@@ -2,14 +2,13 @@ import styled, { css } from "styled-components";
 import { Link, NavLink } from "react-router-dom";
 import { ReactComponent as VideoIcon } from "./images/VideoIcon.svg";
 import { ReactComponent as SearchIcon } from "./images/SearchIcon.svg";
-const bpMobile = ({ theme }) => theme.breakpoint.mobile;
 
 export const StyledHeader = styled.header`
   background: ${({ theme }) => theme.color.black};
   padding: 23px 16px;
   color: ${({ theme }) => theme.color.white};
 
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     padding: 16px;
     background: ${({ theme }) => theme.color.black};
   }
@@ -28,7 +27,7 @@ export const TitleLink = styled(Link)`
   gap: 12px;
   align-items: center;
 
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     gap: 8px;
   }
 `;
@@ -40,7 +39,7 @@ export const GridWrapper = styled.div`
   gap: 16px;
   grid-template-columns: auto minmax(205px, 432px);
 
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     grid-template-columns: 1fr;
     gap: 24px;
   }
@@ -50,7 +49,7 @@ export const Wrapper = styled.div`
   display: flex;
   gap: 80px;
 
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     justify-content: space-between;
     gap: 20px;
   }
@@ -59,7 +58,7 @@ export const Wrapper = styled.div`
 export const StyledVideoIcon = styled(VideoIcon)`
   flex-shrink: 0;
 
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     width: 17px;
     height: 17px;
   }
@@ -70,7 +69,7 @@ export const TitleText = styled.div`
   font-size: 24px;
   flex-shrink: 0;
 
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     font-size: 13px;
   }
 `;
@@ -79,7 +78,7 @@ export const NavigationList = styled.ul`
   display: flex;
   gap: 16px;
 
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     gap: 12px;
     margin-left: 30px;
   }
@@ -107,7 +106,7 @@ export const StyledNavLink = styled(NavLink)`
     cursor: pointer;
   }
 
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     font-size: 12px;
     padding: 8px 12px;
   }
@@ -119,7 +118,7 @@ export const SearchBar = styled.div`
 `;
 
 export const StyledSearchIcon = styled(SearchIcon)`
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     width: 16px;
   }
 `;
@@ -135,7 +134,7 @@ export const SearchBarIcon = styled.div`
   justify-content: right;
   margin-right: -0.7px;
 
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     height: 44px;
     width: 35px;
   }
@@ -157,7 +156,7 @@ export const SearchBarInput = styled.input`
     outline: none;
   }
 
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     height: 44px;
     width: 288px;
     width: 100%;

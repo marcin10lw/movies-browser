@@ -2,8 +2,6 @@ import styled, { css } from "styled-components";
 import { ReactComponent as LeftArrowIcon } from "./images/arrow-left.svg";
 import { ReactComponent as RightArrowIcon } from "./images/arrow-right.svg";
 
-const bpMobile = ({ theme }) => theme.breakpoint.mobile;
-
 export const StyledPagination = styled.section`
   display: flex;
   align-items: center;
@@ -11,7 +9,7 @@ export const StyledPagination = styled.section`
   gap: 24px;
   margin: 0 0 103px;
 
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     gap: 8px;
   }
 
@@ -20,7 +18,7 @@ export const StyledPagination = styled.section`
     css`
       margin: 40px 0 63px;
 
-      @media (max-width: ${bpMobile}px) {
+      @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         margin: 32px 0 0;
       }
     `}
@@ -30,7 +28,7 @@ export const StyledPagination = styled.section`
     css`
       margin: 56px 0 83px;
 
-      @media (max-width: ${bpMobile}px) {
+      @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         margin: 50px 0 9px;
       }
     `}
@@ -40,7 +38,7 @@ export const ButtonsWrapper = styled.div`
   display: flex;
   gap: 12px;
 
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     gap: 8px;
   }
 `;
@@ -49,7 +47,7 @@ export const LeftArrow = styled(LeftArrowIcon)`
   color: ${({ theme }) => theme.color.scienceBlue};
   transition: transform 120ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     width: 5px;
     height: 8px;
   }
@@ -59,7 +57,7 @@ export const LeftArrow = styled(LeftArrowIcon)`
     css`
       display: none;
 
-      @media (max-width: ${bpMobile}px) {
+      @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         display: block;
       }
     `}
@@ -69,7 +67,7 @@ export const RightArrow = styled(RightArrowIcon)`
   color: ${({ theme }) => theme.color.scienceBlue};
   transition: transform 120ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     width: 5px;
     height: 8px;
   }
@@ -79,7 +77,7 @@ export const RightArrow = styled(RightArrowIcon)`
     css`
       display: none;
 
-      @media (max-width: ${bpMobile}px) {
+      @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         display: block;
       }
     `}
@@ -108,7 +106,7 @@ export const Button = styled.button`
     opacity: 1;
   }
 
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     padding: 7.5px 12px;
     gap: 4px;
   }
@@ -133,7 +131,7 @@ export const Button = styled.button`
 `;
 
 export const ButtonText = styled.span`
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     display: none;
   }
 `;
@@ -143,7 +141,7 @@ export const PageInfo = styled.div`
   display: flex;
   gap: 8px;
 
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     font-size: 10px;
     gap: 2px;
   }

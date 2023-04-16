@@ -2,8 +2,6 @@ import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 import { DummyActor } from "../DummyActor";
 
-const bpMobile = ({ theme }) => theme.breakpoint.mobile;
-
 export const StyledActorTile = styled(Link)`
   display: block;
   padding: 16px;
@@ -18,7 +16,7 @@ export const StyledActorTile = styled(Link)`
     box-shadow: 0px 6px 18px 2px #c2d7ff;
   }
 
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     padding: 8px;
 
     &:hover {
@@ -48,7 +46,7 @@ export const ActorName = styled.h3`
   color: ${({ theme }) => theme.color.woodsmoke};
   word-break: break-word;
 
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     font-size: 14px;
     margin: 8px 0 0 0;
   }
@@ -59,7 +57,7 @@ export const Role = styled.div`
   margin-top: 8px;
   color: ${({ theme }) => theme.color.waterloo};
 
-  @media (max-width: ${bpMobile}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
     font-size: 13px;
     margin: 8px 0 0 0;
   }
