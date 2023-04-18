@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { ReactComponent as svgSpinner } from "./images/spinner.svg";
 
 export const StyledLoading = styled.div`
@@ -7,17 +7,20 @@ export const StyledLoading = styled.div`
   align-items: center;
   margin-top: 120px;
 `;
+
+const rotate = keyframes`
+  from {
+      transform: rotate(0deg);
+    }
+
+  to {
+      transform: rotate(360deg);
+    }
+`;
+
 export const StyledSpinner = styled(svgSpinner)`
   width: 91px;
   height: 91px;
   color: ${({ theme }) => theme.color.woodsmoke};
-  animation: rotation 1s linear infinite;
-  @keyframes rotation {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
+  animation: ${rotate} 1s linear infinite;
 `;

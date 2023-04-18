@@ -14,7 +14,7 @@ const ActorTile = ({ poster, name, role, id }) => {
 
   return (
     <StyledActorTile to={`/people/${id}`}>
-      {!poster ? (
+      {poster ? (
         <>
           <ActorStandbyWrapper loaded={imageLoaded}>
             <ActorStandbyPoster />
