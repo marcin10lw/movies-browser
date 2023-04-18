@@ -5,7 +5,7 @@ import {
   fetchMovieDetailsSuccess,
   fetchMovieDetailsError,
 } from "./movieSlice";
-import { getMovieData } from "../../getData";
+import { getMovieData } from "../../../common/getData";
 
 function* fetchMovieDetailsHandler({ payload: movieId }) {
   try {

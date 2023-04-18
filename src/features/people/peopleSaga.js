@@ -1,5 +1,5 @@
 import { call, put, delay, debounce } from "redux-saga/effects";
-import { getDataByQuery, getPopularData } from "../getData";
+import { getDataByQuery, getPopularData } from "../../common/getData";
 import {
   fetchPeopleSuccess,
   fetchPeopleError,

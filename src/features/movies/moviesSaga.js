@@ -1,5 +1,9 @@
 import { call, put, delay, takeLatest, debounce } from "redux-saga/effects";
-import { getPopularData, getGenres, getDataByQuery } from "../getData";
+import {
+  getPopularData,
+  getGenres,
+  getDataByQuery,
+} from "../../common/getData";
 import {
   setGenres,
   fetchMoviesSuccess,

@@ -1,5 +1,5 @@
 import { call, delay, put, takeLatest } from "redux-saga/effects";
-import { getPersonData } from "../../getData";
+import { getPersonData } from "../../../common/getData";
 import {
   fetchActorDetails,
   fetchActorDetailsFail,

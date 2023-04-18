@@ -45,7 +45,7 @@ const MoviePage = () => {
         </Main>
       </>
     ),
-    fail: <ErrorPage />,
+    error: <ErrorPage />,
   }[status];
 };
 
