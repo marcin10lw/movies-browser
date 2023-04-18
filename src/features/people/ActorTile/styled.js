@@ -7,8 +7,11 @@ export const StyledActorTile = styled(Link)`
   padding: 16px;
   text-align: center;
   text-decoration: none;
+  border-radius: 5px;
+  box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
   background-color: ${({ theme }) => theme.color.white};
-  transition: all 170ms cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  transition: box-shadow 170ms cubic-bezier(0.45, 0.05, 0.55, 0.95),
+    transform 170ms cubic-bezier(0.45, 0.05, 0.55, 0.95);
   height: 100%;
 
   &:hover {
