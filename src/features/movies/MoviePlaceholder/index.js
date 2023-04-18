@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import posterImage from "./images/dummyIcon.svg";
 
-export const DummyMovie = styled.div`
+export const MoviePlaceholder = styled.div`
   max-height: 750px;
   max-width: 500px;
   aspect-ratio: 2 / 3;

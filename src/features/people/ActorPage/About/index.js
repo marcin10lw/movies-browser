@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { DummyActor } from "../../DummyActor";
+import { ActorPlaceholder } from "../../ActorPlaceholder";
 import { selectActorInfo } from "../actorSlice";
 import {
   StyledAbout,
@@ -22,7 +22,7 @@ const About = () => {
           alt={actorInfo.name}
         />
       ) : (
-        <DummyActor />
+        <ActorPlaceholder />
       )}
 
       <div>

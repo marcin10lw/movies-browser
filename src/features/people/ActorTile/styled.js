@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
-import { DummyActor } from "../DummyActor";
+import { ActorPlaceholder } from "../ActorPlaceholder";
 
 export const StyledActorTile = styled(Link)`
   display: block;
@@ -74,7 +74,7 @@ export const ActorStandbyWrapper = styled.div`
     `}
 `;
 
-export const ActorStandbyPoster = styled(DummyActor)`
+export const ActorStandbyPoster = styled(ActorPlaceholder)`
   background-color: transparent;
   background: none;
 `;

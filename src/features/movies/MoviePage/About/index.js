@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { DummyMovie } from "../../DummyMovie";
+import { MoviePlaceholder } from "../../MoviePlaceholder";
 import { selectMovieInfo } from "../movieSlice";
 import Rating from "../Rating";
 import {
@@ -28,7 +28,7 @@ const About = () => {
           alt=""
         />
       ) : (
-        <DummyMovie />
+        <MoviePlaceholder />
       )}
       <InfoSection>
         <Name as={`${movieInfo.backdrop_path ? "h2" : "h1"}`}>

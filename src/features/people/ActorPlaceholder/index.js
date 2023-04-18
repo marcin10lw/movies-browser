@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import dummyActorImage from "./images/dummyIcon.svg";
 
-export const DummyActor = styled.div`
+export const ActorPlaceholder = styled.div`
   aspect-ratio: 3 / 4;
   object-fit: cover;
   border-radius: 5px;

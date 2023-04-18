@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
-import { DummyMovie } from "../DummyMovie";
+import { MoviePlaceholder } from "../MoviePlaceholder";
 
 export const StyledMovieTile = styled(Link)`
   text-decoration: none;
@@ -94,7 +94,7 @@ export const MoviesStandbyWrapper = styled.div`
     `}
 `;
 
-export const MovieStandbyPoster = styled(DummyMovie)`
+export const MovieStandbyPoster = styled(MoviePlaceholder)`
   background-color: transparent;
   background: none;
 `;

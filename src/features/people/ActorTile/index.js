@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { DummyActor } from "../DummyActor";
+import { ActorPlaceholder } from "../ActorPlaceholder";
 import {
   StyledActorTile,
   ActorImage,
@@ -14,7 +14,7 @@ const ActorTile = ({ poster, name, role, id }) => {
 
   return (
     <StyledActorTile to={`/people/${id}`}>
-      {poster ? (
+      {!poster ? (
         <>
           <ActorStandbyWrapper loaded={imageLoaded}>
             <ActorStandbyPoster />
@@ -28,7 +28,7 @@ const ActorTile = ({ poster, name, role, id }) => {
         </>
       ) : (
         <div>
-          <DummyActor />
+          <ActorPlaceholder />
         </div>
       )}
       <ActorName>{name}</ActorName>

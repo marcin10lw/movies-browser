@@ -10,7 +10,7 @@ import {
   MoviesStandbyWrapper,
 } from "./styled";
 import Tags from "./Tags";
-import { DummyMovie } from "../DummyMovie";
+import { MoviePlaceholder } from "../MoviePlaceholder";
 
 const MovieTile = ({ poster, title, subtitle, score, votes, genreIds, id }) => {
   const [posterLoaded, setPosterLoaded] = useState(false);
@@ -31,7 +31,7 @@ const MovieTile = ({ poster, title, subtitle, score, votes, genreIds, id }) => {
         </>
       ) : (
         <div>
-          <DummyMovie />
+          <MoviePlaceholder />
         </div>
       )}
 
