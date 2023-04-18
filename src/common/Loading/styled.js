@@ -10,7 +10,7 @@ export const StyledLoading = styled.div`
 export const StyledSpinner = styled(svgSpinner)`
   width: 91px;
   height: 91px;
-  color: #18181b;
+  color: ${({ theme }) => theme.color.woodsmoke};
   animation: rotation 1s linear infinite;
   @keyframes rotation {
     0% {

@@ -13,7 +13,7 @@ export const StyledActorTile = styled(Link)`
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0px 6px 18px 2px #c2d7ff;
+    box-shadow: 0px 6px 18px 2px ${({ theme }) => theme.color.periwinkle};
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {

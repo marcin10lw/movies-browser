@@ -12,7 +12,7 @@ export const Tag = styled.span`
   padding: 8px 16px;
   background: #e4e6f0;
   border-radius: 5px;
-  color: #18181b;
+  color: ${({ theme }) => theme.color.woodsmoke};
   font-size: 14px;
   line-height: 140%;
 

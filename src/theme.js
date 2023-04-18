@@ -11,6 +11,7 @@ export const theme = {
     whisper: "#F5F5FA",
     silver: "#C4C4C4",
     stormGrey: "#74788B",
+    periwinkle: "#C2D7FF",
   },
   breakpoint: {
     mobile: 767,

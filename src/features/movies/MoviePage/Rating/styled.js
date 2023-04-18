@@ -81,7 +81,7 @@ export const VoteAmount = styled.span`
       font-size: 16px;
 
       @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-        color: white;
+        color: ${({ theme }) => theme.color.white};
         font-size: 10px;
       }
     `}
