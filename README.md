@@ -38,21 +38,17 @@ In addition to our powerful movie search feature, our website also offers users 
 
 Whether you're a casual moviegoer or a die-hard film enthusiast, our actor search feature provides an unparalleled level of convenience and access to information about your favorite stars. From legendary icons of the silver screen to up-and-coming talent, our actor search engine has everything you need.
 
-## Used technologies:
+# 💻 Project Tech Stack:
 
-- HTML
-- CSS
-- JavaScript (ES6+)
-- JSX
-- React
-- React Router v6
-- Redux (toolkit)
-- Redux Saga
-- Styled Components
-- create-react-app
-- Npm
-- Axios
-- Async/await
+![react](https://img.shields.io/badge/React-61DAFB.svg?style=for-the-badge&logo=React&logoColor=black)
+![reactrouter](https://img.shields.io/badge/React%20Router-CA4245.svg?style=for-the-badge&logo=React-Router&logoColor=white)
+![redux](https://img.shields.io/badge/Redux-764ABC.svg?style=for-the-badge&logo=Redux&logoColor=white)
+![redux-saga](https://img.shields.io/badge/Redux--Saga-999999.svg?style=for-the-badge&logo=Redux-Saga&logoColor=white)
+![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
+![create react app](https://img.shields.io/badge/Create%20React%20App-09D3AC.svg?style=for-the-badge&logo=Create-React-App&logoColor=white)
+![webpack](https://img.shields.io/badge/Webpack-8DD6F9.svg?style=for-the-badge&logo=Webpack&logoColor=black)
+![babel](https://img.shields.io/badge/Babel-F9DC3E.svg?style=for-the-badge&logo=Babel&logoColor=black)
+![normalize](https://img.shields.io/badge/Normalize.css-E3695F.svg?style=for-the-badge&logo=normalizedotcss&logoColor=white)
 
 ## Created by:
 
