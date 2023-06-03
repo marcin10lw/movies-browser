@@ -1,7 +1,7 @@
 import { Container } from "../../../../common/Container";
 import { GridList } from "../../../../common/GridList";
-import MovieTile from "../../MovieTile";
 import { SectionTitle } from "../../../../common/SectionTitle";
+import MovieTile from "../../MovieTile";
 
 const PopularMovies = ({ title, movies }) => {
   return (
