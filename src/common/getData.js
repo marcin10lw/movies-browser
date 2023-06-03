@@ -3,7 +3,7 @@ import axios from "axios";
 const baseUrl = "https://api.themoviedb.org/3";
 const apiKey = `${process.env.REACT_APP_API_KEY}`;
 
-const getData = async (path, params) => {
+export const getData = async (path, params) => {
   const url = `${baseUrl}/${path}`;
   const response = await axios.get(url, {
     params: { api_key: apiKey, ...params },
