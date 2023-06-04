@@ -1,43 +1,49 @@
-import { useDispatch, useSelector } from "react-redux";
-import {
-  fetchPeople,
-  selectFetchingStatus,
-  selectPeopleTotalPages,
-} from "../peopleSlice";
+import { useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+
 import { Loading } from "../../../common/Loading";
 import { Main } from "../../../common/Main";
 import ErrorPage from "../../../common/ErrorPage";
 import PopularPeople from "./PopularPeople";
-import { useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
 import Pagination from "../../../common/Pagination";
 import NoResultsPage from "../../../common/NoResultsPage";
 import searchQueryParamName from "../../../common/searchQueryParamName";
+import { getPeople } from "./getPeople";
 
 const PopularPeoplePage = () => {
-  const fetchingStatus = useSelector(selectFetchingStatus);
-  const fetchedPages = useSelector(selectPeopleTotalPages);
-  const dispatch = useDispatch();
-
   const [searchParams] = useSearchParams({ page: 1 });
   const currentPage = Number(searchParams.get("page")) || 1;
   const query = searchParams.get(searchQueryParamName) || null;
 
   useEffect(() => {
-    dispatch(fetchPeople({ currentPage, query }));
-  }, [currentPage, query, dispatch]);
+    window.scrollTo(0, 0);
+  }, [currentPage]);
 
-  return {
-    noResults: <NoResultsPage />,
-    loading: <Loading />,
-    success: (
+  const { data, status } = useQuery(
+    ["people", { page: currentPage, query }],
+    getPeople
+  );
+
+  const totalResults = data?.total_results;
+  const totalPages = data?.total_pages;
+  const sectionTitle = query
+    ? `Search results for "${query}" (${totalResults})`
+    : "Popular People";
+
+  if (totalResults === 0) return <NoResultsPage />;
+
+  if (status === "loading") return <Loading />;
+
+  if (status === "success")
+    return (
       <Main>
-        <PopularPeople />
-        <Pagination location="popularPeople" fetchedPages={fetchedPages} />
+        <PopularPeople title={sectionTitle} people={data.results} />
+        <Pagination location="popularPeople" fetchedPages={totalPages} />
       </Main>
-    ),
-    error: <ErrorPage />,
-  }[fetchingStatus];
+    );
+
+  if (status === "error") return <ErrorPage />;
 };
 
 export default PopularPeoplePage;

@@ -1,23 +1,23 @@
 import { exampleResponseDelay } from "../../../common/exampleResponseDelay";
 import { getData } from "../../../common/getData";
 
-export const getMovies = async ({ queryKey }) => {
+export const getPeople = async ({ queryKey }) => {
   const { page, query } = queryKey[1];
 
   await exampleResponseDelay(350);
 
   if (query) {
-    const { data } = await getData("search/movie", {
+    const { data: queryPeople } = await getData("search/person", {
       page,
       query,
     });
 
-    return data;
+    return queryPeople;
   }
 
-  const { data } = await getData("movie/popular", {
+  const { data: popularPeople } = await getData("person/popular", {
     page,
   });
 
-  return data;
+  return popularPeople;
 };
