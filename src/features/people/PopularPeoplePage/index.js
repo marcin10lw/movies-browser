@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
+import { QueryClient, useQuery } from "@tanstack/react-query";
 
 import { Loading } from "../../../common/Loading";
 import { Main } from "../../../common/Main";
@@ -15,15 +15,18 @@ const PopularPeoplePage = () => {
   const [searchParams] = useSearchParams({ page: 1 });
   const currentPage = Number(searchParams.get("page")) || 1;
   const query = searchParams.get(searchQueryParamName) || null;
+  const queryClient = new QueryClient();
+  const getQueryKey = (page) => ["people", { page, query }];
+
+  useEffect(() => {
+    queryClient.prefetchQuery(getQueryKey(currentPage + 1), getPeople);
+  });
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [currentPage]);
 
-  const { data, status } = useQuery(
-    ["people", { page: currentPage, query }],
-    getPeople
-  );
+  const { data, status } = useQuery(getQueryKey(currentPage), getPeople);
 
   const totalResults = data?.total_results;
   const totalPages = data?.total_pages;
