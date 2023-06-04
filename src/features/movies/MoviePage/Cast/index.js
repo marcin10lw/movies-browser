@@ -1,12 +1,8 @@
-import { useSelector } from "react-redux";
-import { selectMovieCast } from "../movieSlice";
 import { GridList } from "../../../../common/GridList";
 import ActorTile from "../../../people/ActorTile";
 import { SectionTitle } from "../../../../common/SectionTitle";
 
-const Cast = () => {
-  const movieCast = useSelector(selectMovieCast);
-
+const Cast = ({ movieCast }) => {
   return (
     movieCast && (
       <section>

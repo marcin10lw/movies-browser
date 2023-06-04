@@ -1,12 +1,8 @@
-import { useSelector } from "react-redux";
-import { selectMovieCrew } from "../movieSlice";
 import { GridList } from "../../../../common/GridList";
 import ActorTile from "../../../people/ActorTile";
 import { SectionTitle } from "../../../../common/SectionTitle";
 
-const Crew = () => {
-  const movieCrew = useSelector(selectMovieCrew);
-
+const Crew = ({ movieCrew }) => {
   return (
     movieCrew && (
       <section>

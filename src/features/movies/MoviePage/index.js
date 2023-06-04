@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+
 import { Container } from "../../../common/Container";
-import { fetchMovieDetails, selectFetchingStatus } from "./movieSlice";
 import About from "./About";
 import BackgroundPoster from "./BackgroundPoster";
 import Cast from "./Cast";
@@ -11,19 +11,18 @@ import { Main } from "../../../common/Main";
 import { Loading } from "../../../common/Loading";
 import ErrorPage from "../../../common/ErrorPage";
 import searchQueryParamName from "../../../common/searchQueryParamName";
+import { getMovieDetails } from "./getMovieDetails";
 
 const MoviePage = () => {
-  const { id } = useParams();
-  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { id } = useParams();
   const [searchParams] = useSearchParams();
-
-  const status = useSelector(selectFetchingStatus);
   const query = searchParams.get(searchQueryParamName);
+  const { data, status } = useQuery(["movieDetails", { id }], getMovieDetails);
 
   useEffect(() => {
-    dispatch(fetchMovieDetails(id));
-  }, [id, dispatch]);
+    window.scrollTo(0, 0);
+  }, [id]);
 
   useEffect(() => {
     if (query) {
@@ -31,22 +30,21 @@ const MoviePage = () => {
     }
   }, [query, navigate]);
 
-  return {
-    loading: <Loading />,
-    success: (
+  if (status === "loading") return <Loading />;
+  if (status === "success")
+    return (
       <>
-        <BackgroundPoster />
+        <BackgroundPoster movieInfo={data.movieInfo} />
         <Main moviePage>
           <Container>
-            <About />
-            <Cast />
-            <Crew />
+            <About movieInfo={data.movieInfo} />
+            <Cast movieCast={data.movieCast} />
+            <Crew movieCrew={data.movieCrew} />
           </Container>
         </Main>
       </>
-    ),
-    error: <ErrorPage />,
-  }[status];
+    );
+  if (status === "error") return <ErrorPage />;
 };
 
 export default MoviePage;
