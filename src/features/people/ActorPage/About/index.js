@@ -1,6 +1,4 @@
-import { useSelector } from "react-redux";
 import { ActorPlaceholder } from "../../ActorPlaceholder";
-import { selectActorInfo } from "../actorSlice";
 import {
   StyledAbout,
   ActorBio,
@@ -11,42 +9,42 @@ import {
   OptionalInfo,
 } from "./styled";
 
-const About = () => {
-  const actorInfo = useSelector(selectActorInfo);
-
+const About = ({ actorInfo }) => {
   return (
-    <StyledAbout>
-      {actorInfo.profile_path ? (
-        <ActorImage
-          src={`https://image.tmdb.org/t/p/w500${actorInfo.profile_path}`}
-          alt={actorInfo.name}
-        />
-      ) : (
-        <ActorPlaceholder />
-      )}
+    actorInfo && (
+      <StyledAbout>
+        {actorInfo.profile_path ? (
+          <ActorImage
+            src={`https://image.tmdb.org/t/p/w500${actorInfo.profile_path}`}
+            alt={actorInfo.name}
+          />
+        ) : (
+          <ActorPlaceholder />
+        )}
 
-      <div>
-        <Name>{actorInfo.name}</Name>
-        <BirthInfo>
-          {actorInfo.birthday && (
-            <div>
-              <SpecificInfo>
-                <OptionalInfo>date of</OptionalInfo> birth:
-              </SpecificInfo>
-              {actorInfo.birthday.replaceAll("-", ".")}
-            </div>
-          )}
-          {actorInfo.place_of_birth && (
-            <div>
-              <SpecificInfo>Place of birth:</SpecificInfo>
-              {actorInfo.place_of_birth}
-            </div>
-          )}
-        </BirthInfo>
-      </div>
+        <div>
+          <Name>{actorInfo.name}</Name>
+          <BirthInfo>
+            {actorInfo.birthday && (
+              <div>
+                <SpecificInfo>
+                  <OptionalInfo>date of</OptionalInfo> birth:
+                </SpecificInfo>
+                {actorInfo.birthday.replaceAll("-", ".")}
+              </div>
+            )}
+            {actorInfo.place_of_birth && (
+              <div>
+                <SpecificInfo>Place of birth:</SpecificInfo>
+                {actorInfo.place_of_birth}
+              </div>
+            )}
+          </BirthInfo>
+        </div>
 
-      <ActorBio>{actorInfo.biography}</ActorBio>
-    </StyledAbout>
+        <ActorBio>{actorInfo.biography}</ActorBio>
+      </StyledAbout>
+    )
   );
 };
 

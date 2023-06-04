@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router";
 import { useSearchParams } from "react-router-dom";
 import { Container } from "../../../common/Container";
@@ -8,22 +7,25 @@ import { Loading } from "../../../common/Loading";
 import { Main } from "../../../common/Main";
 import searchQueryParamName from "../../../common/searchQueryParamName";
 import About from "./About";
-import { fetchActorDetails, selectActorPageStatus } from "./actorSlice";
 import Cast from "./Cast";
 import Crew from "./Crew";
+import { useQuery } from "@tanstack/react-query";
+import { getPersonDetails } from "./getPersonDetails";
 
 const ActorPage = () => {
-  const { id } = useParams();
-  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { id } = useParams();
   const [searchParams] = useSearchParams();
-
-  const pageStatus = useSelector(selectActorPageStatus);
   const query = searchParams.get(searchQueryParamName);
 
+  const { data, status } = useQuery(
+    ["personDetails", { id }],
+    getPersonDetails
+  );
+
   useEffect(() => {
-    dispatch(fetchActorDetails(id));
-  }, [id, dispatch]);
+    window.scrollTo(0, 0);
+  }, [id]);
 
   useEffect(() => {
     if (query) {
@@ -31,19 +33,18 @@ const ActorPage = () => {
     }
   }, [query, navigate]);
 
-  return {
-    loading: <Loading />,
-    success: (
+  if (status === "loading") return <Loading />;
+  if (status === "success")
+    return (
       <Main>
         <Container actorPage>
-          <About />
-          <Cast />
-          <Crew />
+          <About actorInfo={data.actorInfo} />
+          <Cast actorMoviesCast={data.moviesCast} />
+          <Crew actorMoviesCrew={data.moviesCrew} />
         </Container>
       </Main>
-    ),
-    error: <ErrorPage />,
-  }[pageStatus];
+    );
+  if (status === "error") return <ErrorPage />;
 };
 
 export default ActorPage;
