@@ -19,7 +19,9 @@ const PopularPeoplePage = () => {
   const getQueryKey = (page) => ["people", { page, query }];
 
   useEffect(() => {
-    queryClient.prefetchQuery(getQueryKey(currentPage + 1), getPeople);
+    if (currentPage < 500) {
+      queryClient.prefetchQuery(getQueryKey(currentPage + 1), getPeople);
+    }
   });
 
   useEffect(() => {
