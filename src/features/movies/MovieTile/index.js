@@ -1,5 +1,8 @@
 import { useState } from "react";
+
 import Rates from "./Rates";
+import Tags from "./Tags";
+import { MoviePlaceholder } from "../MoviePlaceholder";
 import {
   MovieInfo,
   Poster,
@@ -9,8 +12,6 @@ import {
   MovieStandbyPoster,
   MoviesStandbyWrapper,
 } from "./styled";
-import Tags from "./Tags";
-import { MoviePlaceholder } from "../MoviePlaceholder";
 
 const MovieTile = ({ poster, title, subtitle, score, votes, genreIds, id }) => {
   const [posterLoaded, setPosterLoaded] = useState(false);

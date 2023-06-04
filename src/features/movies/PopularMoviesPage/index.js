@@ -1,15 +1,15 @@
 import { useEffect } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useSearchParams } from "react-router-dom";
-
 import searchQueryParamName from "../../../common/searchQueryParamName";
 import { getMovies } from "./getMovies";
+
 import NoResultsPage from "../../../common/NoResultsPage";
 import { Loading } from "../../../common/Loading";
-import PopularMovies from "./PopularMovies";
-import ErrorPage from "../../../common/ErrorPage";
 import { Main } from "../../../common/Main";
+import PopularMovies from "./PopularMovies";
 import Pagination from "../../../common/Pagination";
+import ErrorPage from "../../../common/ErrorPage";
 
 const PopularMoviesPage = () => {
   const [searchParams] = useSearchParams({ page: 1 });

@@ -1,9 +1,10 @@
-import { StyledLoading, StyledSpinner } from "./styled";
-import { Main } from "../Main";
 import { useSearchParams } from "react-router-dom";
-import { Container } from "../Container";
 import searchQueryParamName from "../searchQueryParamName";
+
+import { Main } from "../Main";
+import { Container } from "../Container";
 import { SectionTitle } from "../SectionTitle";
+import { StyledLoading, StyledSpinner } from "./styled";
 
 export const Loading = () => {
   const [searchParams] = useSearchParams({ [searchQueryParamName]: "" });

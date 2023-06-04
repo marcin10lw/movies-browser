@@ -1,9 +1,10 @@
-import { Main } from "../Main";
-import { Container } from "../Container";
-import { StyledNoResultsImage } from "./styled";
 import { useSearchParams } from "react-router-dom";
 import searchQueryParamName from "../searchQueryParamName";
+
+import { Main } from "../Main";
+import { Container } from "../Container";
 import { SectionTitle } from "../SectionTitle";
+import { StyledNoResultsImage } from "./styled";
 
 const NoResultsPage = () => {
   const [searchParams] = useSearchParams({ [searchQueryParamName]: "" });

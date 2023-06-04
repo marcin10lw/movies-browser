@@ -1,6 +1,6 @@
+import { SectionTitle } from "../../../../common/SectionTitle";
 import { GridList } from "../../../../common/GridList";
 import ActorTile from "../../../people/ActorTile";
-import { SectionTitle } from "../../../../common/SectionTitle";
 
 const Crew = ({ movieCrew }) => {
   return (

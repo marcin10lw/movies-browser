@@ -1,5 +1,5 @@
-import { GridList } from "../../../../common/GridList";
 import { SectionTitle } from "../../../../common/SectionTitle";
+import { GridList } from "../../../../common/GridList";
 import MovieTile from "../../../movies/MovieTile";
 
 const Crew = ({ actorMoviesCrew }) => {

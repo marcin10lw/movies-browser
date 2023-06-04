@@ -1,16 +1,17 @@
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
 import { useSearchParams } from "react-router-dom";
-import { Container } from "../../../common/Container";
-import ErrorPage from "../../../common/ErrorPage";
-import { Loading } from "../../../common/Loading";
-import { Main } from "../../../common/Main";
+import { useQuery } from "@tanstack/react-query";
+import { getPersonDetails } from "./getPersonDetails";
 import searchQueryParamName from "../../../common/searchQueryParamName";
+
+import { Loading } from "../../../common/Loading";
+import { Container } from "../../../common/Container";
+import { Main } from "../../../common/Main";
 import About from "./About";
 import Cast from "./Cast";
 import Crew from "./Crew";
-import { useQuery } from "@tanstack/react-query";
-import { getPersonDetails } from "./getPersonDetails";
+import ErrorPage from "../../../common/ErrorPage";
 
 const ActorPage = () => {
   const navigate = useNavigate();
