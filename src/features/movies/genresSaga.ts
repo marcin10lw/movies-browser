@@ -1,10 +1,11 @@
 import { call, put, takeLatest } from "redux-saga/effects";
 import { getGenres } from "./getGenres";
 import { setGenres, fetchGenres } from "./genresSlice";
+import { Genres } from "./types";
 
 function* fetchGenresHandler() {
   try {
-    const genres = yield call(getGenres);
+    const genres: Genres = yield call(getGenres);
     yield put(setGenres(genres));
   } catch (error) {}
 }

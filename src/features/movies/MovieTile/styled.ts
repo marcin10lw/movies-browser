@@ -42,7 +42,11 @@ export const MovieInfo = styled.div`
   }
 `;
 
-export const Poster = styled.img`
+type PosterProps = {
+  loaded: boolean;
+};
+
+export const Poster = styled.img<PosterProps>`
   border-radius: 5px;
   object-fit: cover;
   aspect-ratio: 2 / 3;
@@ -86,7 +90,7 @@ export const Subtitle = styled.p`
   }
 `;
 
-export const MoviesStandbyWrapper = styled.div`
+export const MoviesStandbyWrapper = styled.div<PosterProps>`
   ${({ loaded }) =>
     loaded &&
     css`

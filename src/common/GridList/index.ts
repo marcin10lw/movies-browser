@@ -1,8 +1,8 @@
 import styled, { css } from "styled-components";
 
 type GridListProps = {
-  popularPeople: boolean;
-  popularMovies: boolean;
+  popularPeople?: boolean;
+  popularMovies?: boolean;
 };
 
 export const GridList = styled.ul<GridListProps>`

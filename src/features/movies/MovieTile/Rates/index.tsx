@@ -1,6 +1,11 @@
 import { StyledRates, Votes, StyledStar, Score } from "./styled";
 
-const Rates = ({ score = 0, votes = "No votes yet" }) => (
+type RatesProps = {
+  score: number;
+  votes: number;
+};
+
+const Rates = ({ score = 0, votes }: RatesProps) => (
   <StyledRates>
     <StyledStar />
     <Score>{score.toFixed(1)}</Score>

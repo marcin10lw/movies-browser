@@ -12,8 +12,27 @@ import {
   MovieStandbyPoster,
   MoviesStandbyWrapper,
 } from "./styled";
+import { GenreIds } from "../types";
 
-const MovieTile = ({ poster, title, subtitle, score, votes, genreIds, id }) => {
+type MovieTileProps = {
+  poster: string;
+  title: string;
+  subtitle: string;
+  score: number;
+  votes: number;
+  genreIds: GenreIds;
+  id: number;
+};
+
+const MovieTile = ({
+  poster,
+  title,
+  subtitle,
+  score,
+  votes,
+  genreIds,
+  id,
+}: MovieTileProps) => {
   const [posterLoaded, setPosterLoaded] = useState(false);
 
   return (

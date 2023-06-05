@@ -2,8 +2,14 @@ import { Container } from "../../../../common/Container";
 import { GridList } from "../../../../common/GridList";
 import { SectionTitle } from "../../../../common/SectionTitle";
 import MovieTile from "../../MovieTile";
+import { Movie } from "../../types";
 
-const PopularMovies = ({ title, movies }) => {
+type PopularMoviesProps = {
+  title: string;
+  movies: Movie[];
+};
+
+const PopularMovies = ({ title, movies }: PopularMoviesProps) => {
   return (
     <Container>
       <section>
