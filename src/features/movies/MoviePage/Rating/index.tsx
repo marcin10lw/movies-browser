@@ -7,7 +7,13 @@ import {
   MaxVote,
 } from "./styled";
 
-const Rating = ({ location, averageVotes, voteAmount }) => (
+type RatingProps = {
+  location?: "backgroundPoster";
+  averageVotes: string;
+  voteAmount: number;
+};
+
+const Rating = ({ location, averageVotes, voteAmount }: RatingProps) => (
   <StyledRating location={location}>
     <Wrapper>
       <StyledStarIcon location={location} />

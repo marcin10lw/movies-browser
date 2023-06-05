@@ -1,7 +1,11 @@
 import styled, { css } from "styled-components";
 import { ReactComponent as StarIcon } from "./images/StarIcon.svg";
 
-export const StyledRating = styled.div`
+type RatingStylesProps = {
+  location?: "backgroundPoster";
+};
+
+export const StyledRating = styled.div<RatingStylesProps>`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -31,7 +35,7 @@ export const Wrapper = styled.div`
   gap: 8px;
 `;
 
-export const StyledStarIcon = styled(StarIcon)`
+export const StyledStarIcon = styled(StarIcon)<RatingStylesProps>`
   width: 24px;
   height: 22px;
 
@@ -47,7 +51,7 @@ export const StyledStarIcon = styled(StarIcon)`
     `}
 `;
 
-export const Votes = styled.span`
+export const Votes = styled.span<RatingStylesProps>`
   font-weight: 500;
   font-size: 22px;
 
@@ -67,7 +71,7 @@ export const Votes = styled.span`
     `}
 `;
 
-export const VoteAmount = styled.span`
+export const VoteAmount = styled.span<RatingStylesProps>`
   font-size: 14px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
@@ -87,7 +91,7 @@ export const VoteAmount = styled.span`
     `}
 `;
 
-export const MaxVote = styled.span`
+export const MaxVote = styled.span<RatingStylesProps>`
   font-size: 14px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {

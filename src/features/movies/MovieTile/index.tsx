@@ -12,7 +12,7 @@ import {
   MovieStandbyPoster,
   MoviesStandbyWrapper,
 } from "./styled";
-import { GenreIds } from "../types";
+import { GenreIds } from "../../../common/types";
 
 type MovieTileProps = {
   poster: string;

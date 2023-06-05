@@ -1,3 +1,4 @@
+import { MovieInfo } from "../../types";
 import Rating from "../Rating";
 import {
   PosterWrapper,
@@ -8,7 +9,12 @@ import {
   Gradient,
 } from "./styled";
 
-const BackgroundPoster = ({ movieInfo }) => {
+type BackgroundPosterProps = {
+  movieInfo: MovieInfo;
+};
+
+const BackgroundPoster = ({ movieInfo }: BackgroundPosterProps) => {
+  console.log(movieInfo);
   return (
     movieInfo && (
       <>

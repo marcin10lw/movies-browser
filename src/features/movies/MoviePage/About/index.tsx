@@ -1,4 +1,5 @@
 import { MoviePlaceholder } from "../../MoviePlaceholder";
+import { MovieInfo } from "../../types";
 import Rating from "../Rating";
 import {
   StyledAbout,
@@ -15,7 +16,11 @@ import {
   Description,
 } from "./styled";
 
-const About = ({ movieInfo }) => {
+type AboutProps = {
+  movieInfo: MovieInfo;
+};
+
+const About = ({ movieInfo }: AboutProps) => {
   return (
     movieInfo && (
       <StyledAbout>

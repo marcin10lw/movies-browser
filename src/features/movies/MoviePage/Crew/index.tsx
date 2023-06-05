@@ -1,8 +1,13 @@
 import { SectionTitle } from "../../../../common/SectionTitle";
 import { GridList } from "../../../../common/GridList";
 import ActorTile from "../../../people/ActorTile";
+import { MovieCrew } from "../../types";
 
-const Crew = ({ movieCrew }) => {
+type CrewProps = {
+  movieCrew: MovieCrew;
+};
+
+const Crew = ({ movieCrew }: CrewProps) => {
   return (
     movieCrew && (
       <section>

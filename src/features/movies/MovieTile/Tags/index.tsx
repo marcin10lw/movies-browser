@@ -1,10 +1,18 @@
 import { selectGenreByIds } from "../../genresSlice";
 import { useSelector } from "react-redux";
 
+import { GenreIds } from "../../../../common/types";
+import { RootState } from "../../../../store";
 import { StyledTags, Tag } from "./styled";
 
-const Tags = ({ genreIds }) => {
-  const genres = useSelector((state) => selectGenreByIds(state, genreIds));
+type TagsProps = {
+  genreIds: GenreIds;
+};
+
+const Tags = ({ genreIds }: TagsProps) => {
+  const genres = useSelector((state: RootState) =>
+    selectGenreByIds(state, genreIds)
+  );
 
   return (
     <StyledTags>

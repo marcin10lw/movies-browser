@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../store";
-import { GenreIds, Genres } from "./types";
+import { GenreIds, Genres } from "../../common/types";
 
 const genresSlice = createSlice({
   name: "genres",
