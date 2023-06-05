@@ -4,7 +4,7 @@ import { ReactComponent as VideoIcon } from "./images/VideoIcon.svg";
 import { ReactComponent as SearchIcon } from "./images/SearchIcon.svg";
 
 type StyledHeaderProps = {
-  isBlackBackground: boolean;
+  isBlackBackground?: boolean;
 };
 
 export const StyledHeader = styled.header<StyledHeaderProps>`

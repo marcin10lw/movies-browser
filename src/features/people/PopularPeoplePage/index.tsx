@@ -10,13 +10,15 @@ import Pagination from "../../../common/Pagination";
 import NoResultsPage from "../../../common/NoResultsPage";
 import searchQueryParamName from "../../../common/searchQueryParamName";
 import { getPeople } from "./getPeople";
+import { PeopleQueryKey } from "../types";
 
 const PopularPeoplePage = () => {
-  const [searchParams] = useSearchParams({ page: 1 });
+  const [searchParams] = useSearchParams({ page: "1" });
   const currentPage = Number(searchParams.get("page")) || 1;
   const query = searchParams.get(searchQueryParamName) || null;
   const queryClient = new QueryClient();
-  const getQueryKey = (page) => ["people", { page, query }];
+  const getQueryKey = (page: number) =>
+    ["people", { page, query }] as PeopleQueryKey;
 
   useEffect(() => {
     if (currentPage < 500) {
@@ -29,9 +31,9 @@ const PopularPeoplePage = () => {
   }, [currentPage]);
 
   const { data, status } = useQuery(getQueryKey(currentPage), getPeople);
+  console.log(data);
 
   const totalResults = data?.total_results;
-  const totalPages = data?.total_pages;
   const sectionTitle = query
     ? `Search results for "${query}" (${totalResults})`
     : "Popular People";
@@ -40,10 +42,13 @@ const PopularPeoplePage = () => {
     <>
       {totalResults === 0 && <NoResultsPage />}
       {status === "loading" && <Loading />}
-      {status === "success" && (
+      {status === "success" && data && (
         <Main>
           <PopularPeople title={sectionTitle} people={data.results} />
-          <Pagination location="popularPeople" fetchedPages={totalPages} />
+          <Pagination
+            location="popularPeople"
+            fetchedPages={data.total_pages}
+          />
         </Main>
       )}
       {status === "error" && <ErrorPage />}

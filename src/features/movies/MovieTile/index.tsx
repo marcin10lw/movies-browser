@@ -17,7 +17,7 @@ import { GenreIds } from "../../../common/types";
 type MovieTileProps = {
   poster: string;
   title: string;
-  subtitle: string;
+  subtitle: string | null;
   score: number;
   votes: number;
   genreIds: GenreIds;

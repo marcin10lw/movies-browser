@@ -1,14 +1,4 @@
-import { GenreIds, Genres } from "../../common/types";
-
-export type Movie = {
-  id: number;
-  title: string;
-  release_date: string;
-  poster_path: string;
-  vote_average: number;
-  vote_count: number;
-  genre_ids: GenreIds;
-};
+import { Genres, Movie } from "../../common/types";
 
 export type MoviesApiResponse = {
   results: Movie[];
@@ -56,7 +46,7 @@ export type MovieInfo = {
   original_title: string;
 };
 
-export type MovieDetails = {
+export type MovieDetailsApiResponse = {
   movieCast: MovieCast;
   movieCrew: MovieCrew;
   movieInfo: MovieInfo;

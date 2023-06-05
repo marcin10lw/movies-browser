@@ -1,23 +1,32 @@
 import { SectionTitle } from "../../../../common/SectionTitle";
 import { GridList } from "../../../../common/GridList";
 import MovieTile from "../../../movies/MovieTile";
+import { Movie } from "../../../../common/types";
 
-const Crew = ({ actorMoviesCrew }) => {
+type CastProps = {
+  actorMoviesCast: Movie[];
+};
+
+const Cast = ({ actorMoviesCast }: CastProps) => {
   return (
-    actorMoviesCrew && (
+    actorMoviesCast && (
       <section>
         <SectionTitle
           as="h2"
           detailsPage
-        >{`Movies - crew (${actorMoviesCrew.length})`}</SectionTitle>
+        >{`Movies - cast (${actorMoviesCast.length})`}</SectionTitle>
         <GridList popularMovies>
-          {actorMoviesCrew.map((movie) => (
+          {actorMoviesCast.map((movie) => (
             <li key={movie.credit_id}>
               <MovieTile
                 title={movie.title}
                 genreIds={movie.genre_ids}
                 poster={movie.poster_path}
-                subtitle={`${movie.job} ${movie.release_date.slice(0, 4)}`}
+                subtitle={`${movie.character} ${
+                  movie.release_date
+                    ? `(${movie.release_date.slice(0, 4)})`
+                    : ""
+                }`}
                 id={movie.id}
                 score={movie.vote_average}
                 votes={movie.vote_count}
@@ -30,4 +39,4 @@ const Crew = ({ actorMoviesCrew }) => {
   );
 };
 
-export default Crew;
+export default Cast;

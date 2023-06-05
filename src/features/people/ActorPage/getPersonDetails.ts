@@ -1,8 +1,15 @@
 import axios from "axios";
+import { QueryFunction } from "@tanstack/react-query";
 import { getData } from "../../../common/getData";
 import { exampleResponseDelay } from "../../../common/exampleResponseDelay";
+import { PersonDetailsApiResponse } from "../types";
 
-export const getPersonDetails = async ({ queryKey }) => {
+type PersonDetailsQueryKey = ["personDetails", { id: string | undefined }];
+
+export const getPersonDetails: QueryFunction<
+  PersonDetailsApiResponse,
+  PersonDetailsQueryKey
+> = async ({ queryKey }) => {
   const { id } = queryKey[1];
 
   await exampleResponseDelay(350);

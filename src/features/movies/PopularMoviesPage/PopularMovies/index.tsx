@@ -2,7 +2,7 @@ import { Container } from "../../../../common/Container";
 import { GridList } from "../../../../common/GridList";
 import { SectionTitle } from "../../../../common/SectionTitle";
 import MovieTile from "../../MovieTile";
-import { Movie } from "../../types";
+import { Movie } from "../../../../common/types";
 
 type PopularMoviesProps = {
   title: string;

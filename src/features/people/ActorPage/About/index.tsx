@@ -1,4 +1,5 @@
 import { ActorPlaceholder } from "../../ActorPlaceholder";
+import { ActorInfo } from "../../types";
 import {
   StyledAbout,
   ActorBio,
@@ -9,7 +10,11 @@ import {
   OptionalInfo,
 } from "./styled";
 
-const About = ({ actorInfo }) => {
+type AboutProps = {
+  actorInfo: ActorInfo;
+};
+
+const About = ({ actorInfo }: AboutProps) => {
   return (
     actorInfo && (
       <StyledAbout>

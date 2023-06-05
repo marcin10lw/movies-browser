@@ -23,6 +23,7 @@ const ActorPage = () => {
     ["personDetails", { id }],
     getPersonDetails
   );
+  console.log(data);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -39,7 +40,7 @@ const ActorPage = () => {
       {status === "loading" && <Loading />}
       {status === "success" && (
         <Main>
-          <Container actorPage>
+          <Container>
             <About actorInfo={data.actorInfo} />
             <Cast actorMoviesCast={data.moviesCast} />
             <Crew actorMoviesCrew={data.moviesCrew} />

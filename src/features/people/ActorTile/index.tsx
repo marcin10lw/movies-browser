@@ -9,7 +9,14 @@ import {
   ActorStandbyPoster,
 } from "./styled";
 
-const ActorTile = ({ poster, name, role, id }) => {
+type ActorTileProps = {
+  poster: string;
+  name: string;
+  role?: string;
+  id: number;
+};
+
+const ActorTile = ({ poster, name, role, id }: ActorTileProps) => {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   return (

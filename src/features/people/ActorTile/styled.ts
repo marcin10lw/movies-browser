@@ -29,7 +29,11 @@ export const StyledActorTile = styled(Link)`
   }
 `;
 
-export const ActorImage = styled.img`
+type ActorImageProps = {
+  loaded: boolean;
+};
+
+export const ActorImage = styled.img<ActorImageProps>`
   width: 100%;
   object-fit: cover;
   border-radius: 5px;
@@ -66,7 +70,7 @@ export const Role = styled.div`
   }
 `;
 
-export const ActorStandbyWrapper = styled.div`
+export const ActorStandbyWrapper = styled.div<ActorImageProps>`
   ${({ loaded }) =>
     loaded &&
     css`

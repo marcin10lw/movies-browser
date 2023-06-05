@@ -2,12 +2,12 @@ import axios from "axios";
 import { getData } from "../../../common/getData";
 import { exampleResponseDelay } from "../../../common/exampleResponseDelay";
 import { QueryFunction } from "@tanstack/react-query";
-import { MovieDetails } from "../types";
+import { MovieDetailsApiResponse } from "../types";
 
 type MovieDetailsKey = ["movieDetails", { id: string | undefined }];
 
 export const getMovieDetails: QueryFunction<
-  MovieDetails,
+  MovieDetailsApiResponse,
   MovieDetailsKey
 > = async ({ queryKey }) => {
   const { id } = queryKey[1];
