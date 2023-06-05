@@ -23,7 +23,6 @@ const ActorPage = () => {
     ["personDetails", { id }],
     getPersonDetails
   );
-  console.log(data);
 
   useEffect(() => {
     window.scrollTo(0, 0);

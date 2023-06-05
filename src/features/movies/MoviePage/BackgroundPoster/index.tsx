@@ -14,7 +14,6 @@ type BackgroundPosterProps = {
 };
 
 const BackgroundPoster = ({ movieInfo }: BackgroundPosterProps) => {
-  console.log(movieInfo);
   return (
     movieInfo && (
       <>

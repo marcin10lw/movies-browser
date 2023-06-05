@@ -31,7 +31,6 @@ const PopularPeoplePage = () => {
   }, [currentPage]);
 
   const { data, status } = useQuery(getQueryKey(currentPage), getPeople);
-  console.log(data);
 
   const totalResults = data?.total_results;
   const sectionTitle = query
