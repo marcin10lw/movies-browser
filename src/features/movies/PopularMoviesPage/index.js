@@ -37,18 +37,19 @@ const PopularMoviesPage = () => {
     ? `Search results for "${query}" (${totalResults})`
     : "Popular Movies";
 
-  if (totalResults === 0) return <NoResultsPage />;
-
-  if (status === "loading") return <Loading />;
-
-  if (status === "success")
-    return (
-      <Main>
-        <PopularMovies title={sectionTitle} movies={data.results} />
-        <Pagination location="popularMovies" fetchedPages={totalPages} />
-      </Main>
-    );
-  if (status === "error") return <ErrorPage />;
+  return (
+    <>
+      {totalResults === 0 && <NoResultsPage />}
+      {status === "loading" && <Loading />}
+      {status === "success" && (
+        <Main>
+          <PopularMovies title={sectionTitle} movies={data.results} />
+          <Pagination location="popularMovies" fetchedPages={totalPages} />
+        </Main>
+      )}
+      {status === "error" && <ErrorPage />}
+    </>
+  );
 };
 
 export default PopularMoviesPage;

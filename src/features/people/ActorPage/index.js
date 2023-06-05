@@ -34,18 +34,21 @@ const ActorPage = () => {
     }
   }, [query, navigate]);
 
-  if (status === "loading") return <Loading />;
-  if (status === "success")
-    return (
-      <Main>
-        <Container actorPage>
-          <About actorInfo={data.actorInfo} />
-          <Cast actorMoviesCast={data.moviesCast} />
-          <Crew actorMoviesCrew={data.moviesCrew} />
-        </Container>
-      </Main>
-    );
-  if (status === "error") return <ErrorPage />;
+  return (
+    <>
+      {status === "loading" && <Loading />}
+      {status === "success" && (
+        <Main>
+          <Container actorPage>
+            <About actorInfo={data.actorInfo} />
+            <Cast actorMoviesCast={data.moviesCast} />
+            <Crew actorMoviesCrew={data.moviesCrew} />
+          </Container>
+        </Main>
+      )}
+      {status === "error" && <ErrorPage />}
+    </>
+  );
 };
 
 export default ActorPage;

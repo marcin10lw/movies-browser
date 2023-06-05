@@ -30,21 +30,24 @@ const MoviePage = () => {
     }
   }, [query, navigate]);
 
-  if (status === "loading") return <Loading />;
-  if (status === "success")
-    return (
-      <>
-        <BackgroundPoster movieInfo={data.movieInfo} />
-        <Main moviePage>
-          <Container>
-            <About movieInfo={data.movieInfo} />
-            <Cast movieCast={data.movieCast} />
-            <Crew movieCrew={data.movieCrew} />
-          </Container>
-        </Main>
-      </>
-    );
-  if (status === "error") return <ErrorPage />;
+  return (
+    <>
+      {status === "loading" && <Loading />}
+      {status === "success" && (
+        <>
+          <BackgroundPoster movieInfo={data.movieInfo} />
+          <Main moviePage>
+            <Container>
+              <About movieInfo={data.movieInfo} />
+              <Cast movieCast={data.movieCast} />
+              <Crew movieCrew={data.movieCrew} />
+            </Container>
+          </Main>
+        </>
+      )}
+      {status === "error" && <ErrorPage />}
+    </>
+  );
 };
 
 export default MoviePage;

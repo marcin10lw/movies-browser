@@ -36,19 +36,19 @@ const PopularPeoplePage = () => {
     ? `Search results for "${query}" (${totalResults})`
     : "Popular People";
 
-  if (totalResults === 0) return <NoResultsPage />;
-
-  if (status === "loading") return <Loading />;
-
-  if (status === "success")
-    return (
-      <Main>
-        <PopularPeople title={sectionTitle} people={data.results} />
-        <Pagination location="popularPeople" fetchedPages={totalPages} />
-      </Main>
-    );
-
-  if (status === "error") return <ErrorPage />;
+  return (
+    <>
+      {totalResults === 0 && <NoResultsPage />}
+      {status === "loading" && <Loading />}
+      {status === "success" && (
+        <Main>
+          <PopularPeople title={sectionTitle} people={data.results} />
+          <Pagination location="popularPeople" fetchedPages={totalPages} />
+        </Main>
+      )}
+      {status === "error" && <ErrorPage />}
+    </>
+  );
 };
 
 export default PopularPeoplePage;
