@@ -2,7 +2,11 @@ import styled, { css } from "styled-components";
 import { ReactComponent as LeftArrowIcon } from "./images/arrow-left.svg";
 import { ReactComponent as RightArrowIcon } from "./images/arrow-right.svg";
 
-export const StyledPagination = styled.section`
+type StyledPaginationProps = {
+  location: "popularMovies" | "popularPeople";
+};
+
+export const StyledPagination = styled.section<StyledPaginationProps>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -43,7 +47,11 @@ export const ButtonsWrapper = styled.div`
   }
 `;
 
-export const LeftArrow = styled(LeftArrowIcon)`
+type ArrowProps = {
+  mobile?: "true";
+};
+
+export const LeftArrow = styled(LeftArrowIcon)<ArrowProps>`
   color: ${({ theme }) => theme.color.scienceBlue};
   transition: transform 120ms cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -63,7 +71,7 @@ export const LeftArrow = styled(LeftArrowIcon)`
     `}
 `;
 
-export const RightArrow = styled(RightArrowIcon)`
+export const RightArrow = styled(RightArrowIcon)<ArrowProps>`
   color: ${({ theme }) => theme.color.scienceBlue};
   transition: transform 120ms cubic-bezier(0.4, 0, 0.2, 1);
 

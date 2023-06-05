@@ -1,6 +1,10 @@
 import styled, { css } from "styled-components";
 
-export const SectionTitle = styled.h1`
+type SectionTitleProps = {
+  detailsPage?: boolean;
+};
+
+export const SectionTitle = styled.h1<SectionTitleProps>`
   margin: 0 0 24px 0;
   color: ${({ theme }) => theme.color.woodsmoke};
   font-weight: 600;

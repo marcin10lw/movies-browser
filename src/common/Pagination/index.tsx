@@ -13,7 +13,12 @@ import {
   ButtonText,
 } from "./styled";
 
-const Pagination = ({ location, fetchedPages }) => {
+type PaginationProps = {
+  location: "popularMovies" | "popularPeople";
+  fetchedPages: number;
+};
+
+const Pagination = ({ location, fetchedPages }: PaginationProps) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const currentPage = Number(searchParams.get("page")) || 1;
   const query = searchParams.get(searchQueryParamName);
@@ -22,8 +27,8 @@ const Pagination = ({ location, fetchedPages }) => {
   const onGoToFirst = () => {
     if (currentPage !== 1) {
       query
-        ? setSearchParams({ [searchQueryParamName]: query, page: 1 })
-        : setSearchParams({ page: 1 });
+        ? setSearchParams({ [searchQueryParamName]: query, page: "1" })
+        : setSearchParams({ page: "1" });
     }
   };
 
@@ -32,8 +37,11 @@ const Pagination = ({ location, fetchedPages }) => {
       const previousPage = currentPage - 1;
 
       query
-        ? setSearchParams({ [searchQueryParamName]: query, page: previousPage })
-        : setSearchParams({ page: previousPage });
+        ? setSearchParams({
+            [searchQueryParamName]: query,
+            page: String(previousPage),
+          })
+        : setSearchParams({ page: String(previousPage) });
     }
   };
 
@@ -42,16 +50,22 @@ const Pagination = ({ location, fetchedPages }) => {
       const nextPage = currentPage + 1;
 
       query
-        ? setSearchParams({ [searchQueryParamName]: query, page: nextPage })
-        : setSearchParams({ page: nextPage });
+        ? setSearchParams({
+            [searchQueryParamName]: query,
+            page: String(nextPage),
+          })
+        : setSearchParams({ page: String(nextPage) });
     }
   };
 
   const onGoToLast = () => {
     if (currentPage !== totalPages) {
       query
-        ? setSearchParams({ [searchQueryParamName]: query, page: totalPages })
-        : setSearchParams({ page: totalPages });
+        ? setSearchParams({
+            [searchQueryParamName]: query,
+            page: String(totalPages),
+          })
+        : setSearchParams({ page: String(totalPages) });
     }
   };
 

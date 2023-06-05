@@ -24,12 +24,14 @@ const Header = () => {
 
   const query = searchParams.get(searchQueryParamName);
 
-  const onInputChange = ({ target }) => {
-    if (target.value.trim() === "") {
+  const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+
+    if (value.trim() === "") {
       searchParams.delete(searchQueryParamName);
       setSearchParams(searchParams);
     } else {
-      setSearchParams({ [searchQueryParamName]: target.value });
+      setSearchParams({ [searchQueryParamName]: value });
     }
   };
 

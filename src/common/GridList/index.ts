@@ -1,6 +1,11 @@
 import styled, { css } from "styled-components";
 
-export const GridList = styled.ul`
+type GridListProps = {
+  popularPeople: boolean;
+  popularMovies: boolean;
+};
+
+export const GridList = styled.ul<GridListProps>`
   list-style: none;
   padding: 0;
   margin: 0;

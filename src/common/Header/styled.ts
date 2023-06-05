@@ -3,7 +3,11 @@ import { Link, NavLink } from "react-router-dom";
 import { ReactComponent as VideoIcon } from "./images/VideoIcon.svg";
 import { ReactComponent as SearchIcon } from "./images/SearchIcon.svg";
 
-export const StyledHeader = styled.header`
+type StyledHeaderProps = {
+  isBlackBackground: boolean;
+};
+
+export const StyledHeader = styled.header<StyledHeaderProps>`
   background: ${({ theme }) => theme.color.black};
   padding: 23px 16px;
   color: ${({ theme }) => theme.color.white};
