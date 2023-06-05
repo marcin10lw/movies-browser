@@ -87,9 +87,17 @@ export const Gradient = styled.div`
   }
 `;
 
+export const PosterWrapper = styled.div`
+  max-width: 1280px;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+`;
+
 export const BigPoster = styled.img`
+  display: block;
   width: 100%;
   height: 100%;
+  object-fit: cover;
 `;
 
 export const Info = styled.div`

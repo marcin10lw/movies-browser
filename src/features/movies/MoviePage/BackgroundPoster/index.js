@@ -1,5 +1,6 @@
 import Rating from "../Rating";
 import {
+  PosterWrapper,
   StyledBackgroundPoster,
   Info,
   Title,
@@ -14,12 +15,12 @@ const BackgroundPoster = ({ movieInfo }) => {
         {movieInfo.backdrop_path && (
           <StyledBackgroundPoster>
             <Gradient />
-            <div>
+            <PosterWrapper>
               <BigPoster
                 src={`https://image.tmdb.org/t/p/w1280/${movieInfo.backdrop_path}`}
                 alt=""
               />
-            </div>
+            </PosterWrapper>
             <Info>
               <Title>{movieInfo.original_title}</Title>
               <Rating
