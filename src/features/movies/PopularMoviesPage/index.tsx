@@ -25,7 +25,7 @@ const PopularMoviesPage = () => {
     if (currentPage < 500) {
       queryClient.prefetchQuery(getQueryKey(currentPage + 1), getMovies);
     }
-  }, [currentPage, queryClient]);
+  }, [currentPage]);
 
   useEffect(() => {
     window.scrollTo(0, 0);

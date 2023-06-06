@@ -1,5 +1,4 @@
 import { QueryFunction } from "@tanstack/react-query";
-import { exampleResponseDelay } from "../../../common/exampleResponseDelay";
 import { getData } from "../../../common/getData";
 import { PeopleApiResponse, PeopleQueryKey } from "../types";
 
@@ -8,8 +7,6 @@ export const getPeople: QueryFunction<
   PeopleQueryKey
 > = async ({ queryKey }) => {
   const { page, query } = queryKey[1];
-
-  await exampleResponseDelay(350);
 
   if (query) {
     const { data: queryPeople } = await getData("search/person", {
