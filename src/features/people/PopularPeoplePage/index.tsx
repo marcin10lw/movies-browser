@@ -24,7 +24,7 @@ const PopularPeoplePage = () => {
     if (currentPage < 500) {
       queryClient.prefetchQuery(getQueryKey(currentPage + 1), getPeople);
     }
-  });
+  }, [currentPage]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
