@@ -2,6 +2,7 @@ import { SectionTitle } from "../../../../common/SectionTitle";
 import { GridList } from "../../../../common/GridList";
 import ActorTile from "../../../people/ActorTile";
 import { MovieCast } from "../../types";
+import DetailsPagination from "../../../../common/DetailsPagination";
 
 type CastProps = {
   movieCast: MovieCast;
@@ -26,6 +27,7 @@ const Cast = ({ movieCast }: CastProps) => {
             </li>
           ))}
         </GridList>
+        <DetailsPagination />
       </section>
     )
   );
