@@ -22,8 +22,26 @@ export const Button = styled.button`
   border-radius: 5px;
   cursor: pointer;
 
+  &:disabled {
+    background-color: ${({ theme }) => theme.color.mystic};
+    pointer-events: none;
+
+    svg {
+      color: ${({ theme }) => theme.color.waterloo};
+    }
+  }
+
+  &:hover ${LeftArrow} {
+    transform: translateX(-2px);
+  }
+
+  &:hover ${RightArrow} {
+    transform: translateX(2px);
+  }
+
   svg {
     display: block;
+    transition: transform 120ms ease-in-out;
   }
 `;
 

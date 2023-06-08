@@ -1,22 +1,29 @@
+import { detailsTilesPerPage } from "../../../../common/detailsTilesPerPage";
 import { SectionTitle } from "../../../../common/SectionTitle";
 import { GridList } from "../../../../common/GridList";
 import ActorTile from "../../../people/ActorTile";
 import { MovieCast } from "../../types";
 import DetailsPagination from "../../../../common/DetailsPagination";
+import useDetailsPagination from "../../../../common/useDetailsPagination";
 
 type CastProps = {
   movieCast: MovieCast;
 };
 
 const Cast = ({ movieCast }: CastProps) => {
+  const { firstIndex, lastIndex, currentPage, setCurrentPage, ref } =
+    useDetailsPagination();
+
+  const currentMovieCast = movieCast.slice(firstIndex, lastIndex);
+
   return (
     movieCast && (
-      <section>
+      <section ref={ref}>
         <SectionTitle as="h2" detailsPage>
           Cast
         </SectionTitle>
         <GridList popularPeople>
-          {movieCast.map((movie) => (
+          {currentMovieCast.map((movie) => (
             <li key={movie.cast_id}>
               <ActorTile
                 poster={movie.profile_path}
@@ -27,7 +34,13 @@ const Cast = ({ movieCast }: CastProps) => {
             </li>
           ))}
         </GridList>
-        <DetailsPagination />
+        {movieCast.length > detailsTilesPerPage && (
+          <DetailsPagination
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            tilesAmount={movieCast.length}
+          />
+        )}
       </section>
     )
   );

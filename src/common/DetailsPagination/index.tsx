@@ -1,3 +1,5 @@
+import { detailsTilesPerPage } from "../detailsTilesPerPage";
+
 import {
   Button,
   Info,
@@ -8,18 +10,42 @@ import {
   Text,
 } from "./styled";
 
-const DetailsPagination = () => {
+type DetailsPaginationProps = {
+  currentPage: number;
+  setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
+  tilesAmount: number;
+};
+
+const DetailsPagination = ({
+  currentPage,
+  setCurrentPage,
+  tilesAmount,
+}: DetailsPaginationProps) => {
+  const totalPages = Math.ceil(tilesAmount / detailsTilesPerPage);
+
+  const onGoToPreviousClick = () => {
+    if (currentPage === 1) return;
+
+    setCurrentPage((currentPage) => currentPage - 1);
+  };
+
+  const onGoToNextClick = () => {
+    if (currentPage === totalPages) return;
+
+    setCurrentPage((currentPage) => currentPage + 1);
+  };
+
   return (
     <StyledDetailsPagination>
-      <Button>
+      <Button disabled={currentPage === 1} onClick={onGoToPreviousClick}>
         <LeftArrow />
       </Button>
       <Info>
-        <Number>1</Number>
+        <Number>{currentPage}</Number>
         <Text>of</Text>
-        <Number>2</Number>
+        <Number>{totalPages}</Number>
       </Info>
-      <Button>
+      <Button disabled={currentPage === totalPages} onClick={onGoToNextClick}>
         <RightArrow />
       </Button>
     </StyledDetailsPagination>

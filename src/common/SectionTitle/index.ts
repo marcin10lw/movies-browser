@@ -20,10 +20,11 @@ export const SectionTitle = styled.h1<SectionTitleProps>`
   ${({ detailsPage }) =>
     detailsPage &&
     css`
-      margin: 64px 0 24px;
+      padding: 64px 0 24px;
+      margin: 0;
 
       @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
-        margin: 24px 0 16px;
+        padding: 24px 0 16px;
       }
     `}
 `;

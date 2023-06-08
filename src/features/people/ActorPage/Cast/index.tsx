@@ -1,22 +1,30 @@
+import { detailsTilesPerPage } from "../../../../common/detailsTilesPerPage";
 import { SectionTitle } from "../../../../common/SectionTitle";
 import { GridList } from "../../../../common/GridList";
 import MovieTile from "../../../movies/MovieTile";
 import { Movie } from "../../../../common/types";
+import useDetailsPagination from "../../../../common/useDetailsPagination";
+import DetailsPagination from "../../../../common/DetailsPagination";
 
 type CastProps = {
   actorMoviesCast: Movie[];
 };
 
 const Cast = ({ actorMoviesCast }: CastProps) => {
+  const { firstIndex, lastIndex, currentPage, setCurrentPage, ref } =
+    useDetailsPagination();
+
+  const currentActorMoviesCast = actorMoviesCast.slice(firstIndex, lastIndex);
+
   return (
     actorMoviesCast && (
-      <section>
+      <section ref={ref}>
         <SectionTitle
           as="h2"
           detailsPage
         >{`Movies - cast (${actorMoviesCast.length})`}</SectionTitle>
         <GridList popularMovies>
-          {actorMoviesCast.map((movie) => (
+          {currentActorMoviesCast.map((movie) => (
             <li key={movie.credit_id}>
               <MovieTile
                 title={movie.title}
@@ -34,6 +42,14 @@ const Cast = ({ actorMoviesCast }: CastProps) => {
             </li>
           ))}
         </GridList>
+
+        {actorMoviesCast.length > detailsTilesPerPage && (
+          <DetailsPagination
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            tilesAmount={actorMoviesCast.length}
+          />
+        )}
       </section>
     )
   );
