@@ -20,7 +20,7 @@ export const GridList = styled.ul<GridListProps>`
   ${({ popularPeople }) =>
     popularPeople &&
     css`
-      grid-template-columns: repeat(auto-fill, minmax(208px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
 
       @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
         grid-template-columns: repeat(auto-fill, minmax(136px, 1fr));
