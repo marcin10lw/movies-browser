@@ -8,6 +8,8 @@ const useDetailsPagination = () => {
   const firstIndex = lastIndex - 20;
 
   useEffect(() => {
+    if (currentPage === 1) return;
+
     ref.current?.scrollIntoView();
   }, [currentPage]);
 
