@@ -21,10 +21,6 @@ const MoviePage = () => {
   const { data, status } = useQuery(["movieDetails", { id }], getMovieDetails);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [id]);
-
-  useEffect(() => {
     if (query) {
       navigate(`/movies?${searchQueryParamName}=${query}`);
     }

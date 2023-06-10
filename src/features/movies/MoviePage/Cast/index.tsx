@@ -20,7 +20,7 @@ const Cast = ({ movieCast }: CastProps) => {
     movieCast && (
       <section ref={ref}>
         <SectionTitle as="h2" detailsPage>
-          Cast
+          Cast ({movieCast.length})
         </SectionTitle>
         <GridList popularPeople>
           {currentMovieCast.map((movie) => (

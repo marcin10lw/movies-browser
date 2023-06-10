@@ -20,7 +20,7 @@ const Crew = ({ movieCrew }: CrewProps) => {
     movieCrew && (
       <section ref={ref}>
         <SectionTitle as="h2" detailsPage>
-          Crew
+          Crew ({movieCrew.length})
         </SectionTitle>
         <GridList popularPeople>
           {currentMovieCrew.map((movie) => (

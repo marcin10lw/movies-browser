@@ -25,10 +25,6 @@ const ActorPage = () => {
   );
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [id]);
-
-  useEffect(() => {
     if (query) {
       navigate(`/people?${searchQueryParamName}=${query}`);
     }
