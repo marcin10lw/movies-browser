@@ -14,7 +14,14 @@ export const LeftArrow = styled(LeftArrowIcon)``;
 
 export const RightArrow = styled(RightArrowIcon)``;
 
+export const ButtonsWrapper = styled.div`
+  display: flex;
+  gap: 6px;
+`;
+
 export const Button = styled.button`
+  display: flex;
+  gap: 2px;
   background-color: ${({ theme }) => theme.color.pattensBlue};
   color: ${({ theme }) => theme.color.scienceBlue};
   padding: 8px 16px;
