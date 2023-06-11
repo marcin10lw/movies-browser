@@ -8,6 +8,11 @@ export const StyledDetailsPagination = styled.nav`
   justify-content: center;
   gap: 24px;
   margin-top: 24px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+    gap: 12px;
+    font-size: 12px;
+  }
 `;
 
 export const LeftArrow = styled(LeftArrowIcon)``;
@@ -46,15 +51,27 @@ export const Button = styled.button`
     transform: translateX(2px);
   }
 
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+    padding: 8px 12px;
+  }
+
   svg {
     display: block;
     transition: transform 120ms ease-in-out;
+
+    @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+      width: 5px;
+    }
   }
 `;
 
 export const Info = styled.p`
   display: flex;
   gap: 8px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}px) {
+    gap: 6px;
+  }
 `;
 
 export const Text = styled.span`
