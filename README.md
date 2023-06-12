@@ -58,6 +58,14 @@ Whether you're a casual moviegoer or a die-hard film enthusiast, our actor searc
 - [Mikołaj Graczyk](https://github.com/mikolajgraczyk)
 - [Jakub Helizanowicz](https://github.com/HelkaPL)
 
+## Adding TypeScript and React Query
+
+This project has been migrated to TypeScript and uses React Query for asynchronous operations.
+
+### TypeScript
+
+TypeScript brings static typing to JavaScript, providing better tooling, autocompletion, and catching errors at compile-time. To add TypeScript to your project, follow these steps:
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
