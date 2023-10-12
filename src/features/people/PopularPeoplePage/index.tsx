@@ -11,11 +11,13 @@ import NoResultsPage from "../../../common/NoResultsPage";
 import searchQueryParamName from "../../../common/searchQueryParamName";
 import { getPeople } from "./getPeople";
 import { PeopleQueryKey } from "../types";
+import useDebounce from "../../../common/useDebounce";
 
 const PopularPeoplePage = () => {
   const [searchParams] = useSearchParams({ page: "1" });
   const currentPage = Number(searchParams.get("page")) || 1;
-  const query = searchParams.get(searchQueryParamName) || null;
+  const query =
+    useDebounce(searchParams.get(searchQueryParamName) || "") || null;
   const queryClient = new QueryClient();
   const getQueryKey = (page: number) =>
     ["people", { page, query }] as PeopleQueryKey;
@@ -24,6 +26,8 @@ const PopularPeoplePage = () => {
     if (currentPage < 500) {
       queryClient.prefetchQuery(getQueryKey(currentPage + 1), getPeople);
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage]);
 
   useEffect(() => {

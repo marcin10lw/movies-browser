@@ -11,11 +11,13 @@ import PopularMovies from "./PopularMovies";
 import Pagination from "../../../common/Pagination";
 import ErrorPage from "../../../common/ErrorPage";
 import { MoviesQueryKey } from "../types";
+import useDebounce from "../../../common/useDebounce";
 
 const PopularMoviesPage = () => {
   const [searchParams] = useSearchParams({ page: "1" });
   const currentPage = Number(searchParams.get("page")) || 1;
-  const query = searchParams.get(searchQueryParamName) || null;
+  const query =
+    useDebounce(searchParams.get(searchQueryParamName) || "", 450) || null;
   const queryClient = new QueryClient();
 
   const getQueryKey = (page: number) =>
@@ -25,6 +27,8 @@ const PopularMoviesPage = () => {
     if (currentPage < 500) {
       queryClient.prefetchQuery(getQueryKey(currentPage + 1), getMovies);
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage]);
 
   useEffect(() => {

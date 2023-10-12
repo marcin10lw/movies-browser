@@ -12,12 +12,13 @@ import About from "./About";
 import Cast from "./Cast";
 import Crew from "./Crew";
 import ErrorPage from "../../../common/ErrorPage";
+import useDebounce from "../../../common/useDebounce";
 
 const ActorPage = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [searchParams] = useSearchParams();
-  const query = searchParams.get(searchQueryParamName);
+  const query = useDebounce(searchParams.get(searchQueryParamName) || "");
 
   const { data, status } = useQuery(
     ["personDetails", { id }],
