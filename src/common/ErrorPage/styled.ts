@@ -1,5 +1,6 @@
-import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
+
 import { ReactComponent as ErrorIcon } from "./images/ErrorIcon.svg";
 
 export const StyledErrorPage = styled.div`

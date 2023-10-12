@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import { ReactComponent as NoResultsImage } from "./images/NoResultsImage.svg";
 
 export const StyledNoResultsImage = styled(NoResultsImage)`

@@ -1,7 +1,8 @@
 import { call, put, takeLatest } from "redux-saga/effects";
-import { getGenres } from "./getGenres";
+
 import { setGenres, fetchGenres } from "./genresSlice";
-import { Genres } from "../../common/types";
+import { getGenres } from "./getGenres";
+import { Genres } from "common/types";
 
 function* fetchGenresHandler() {
   try {

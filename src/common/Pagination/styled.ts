@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+
 import { ReactComponent as LeftArrowIcon } from "./images/arrow-left.svg";
 import { ReactComponent as RightArrowIcon } from "./images/arrow-right.svg";
 

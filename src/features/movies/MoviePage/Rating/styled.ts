@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+
 import { ReactComponent as StarIcon } from "./images/StarIcon.svg";
 
 type RatingStylesProps = {

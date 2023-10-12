@@ -1,8 +1,8 @@
-import { Container } from "../../../../common/Container";
-import { GridList } from "../../../../common/GridList";
-import { SectionTitle } from "../../../../common/SectionTitle";
-import MovieTile from "../../MovieTile";
-import { Movie } from "../../../../common/types";
+import { Container } from "common/Container";
+import { GridList } from "common/GridList";
+import { SectionTitle } from "common/SectionTitle";
+import { Movie } from "common/types";
+import MovieTile from "features/movies/MovieTile";
 
 type PopularMoviesProps = {
   title: string;

@@ -1,6 +1,7 @@
-import axios from "axios";
 import { QueryFunction } from "@tanstack/react-query";
-import { getData } from "../../../common/getData";
+import axios from "axios";
+
+import { getData } from "common/getData";
 import { PersonDetailsApiResponse } from "../types";
 
 type PersonDetailsQueryKey = ["personDetails", { id: string | undefined }];

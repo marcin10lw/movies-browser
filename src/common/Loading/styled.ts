@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components";
+
 import { ReactComponent as svgSpinner } from "./images/spinner.svg";
 
 export const StyledLoading = styled.div`

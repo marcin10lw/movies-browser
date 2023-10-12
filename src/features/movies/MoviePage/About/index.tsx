@@ -1,5 +1,5 @@
-import { MoviePlaceholder } from "../../MoviePlaceholder";
-import { MovieInfo } from "../../types";
+import { MovieInfo } from "features/movies/types";
+import { MoviePlaceholder } from "features/movies/MoviePlaceholder";
 import Rating from "../Rating";
 import {
   StyledAbout,

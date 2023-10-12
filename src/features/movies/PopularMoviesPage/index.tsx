@@ -1,17 +1,17 @@
 import { useEffect } from "react";
-import { QueryClient, useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "react-router-dom";
-import searchQueryParamName from "../../../common/searchQueryParamName";
-import { getMovies } from "./getMovies";
+import { QueryClient, useQuery } from "@tanstack/react-query";
 
-import NoResultsPage from "../../../common/NoResultsPage";
-import { Loading } from "../../../common/Loading";
-import { Main } from "../../../common/Main";
-import PopularMovies from "./PopularMovies";
-import Pagination from "../../../common/Pagination";
-import ErrorPage from "../../../common/ErrorPage";
 import { MoviesQueryKey } from "../types";
-import useDebounce from "../../../common/useDebounce";
+import { getMovies } from "./getMovies";
+import PopularMovies from "./PopularMovies";
+import searchQueryParamName from "common/searchQueryParamName";
+import NoResultsPage from "common/NoResultsPage";
+import { Loading } from "common/Loading";
+import { Main } from "common/Main";
+import Pagination from "common/Pagination";
+import ErrorPage from "common/ErrorPage";
+import useDebounce from "common/useDebounce";
 
 const PopularMoviesPage = () => {
   const [searchParams] = useSearchParams({ page: "1" });

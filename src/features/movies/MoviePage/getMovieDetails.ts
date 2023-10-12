@@ -1,6 +1,7 @@
-import axios from "axios";
-import { getData } from "../../../common/getData";
 import { QueryFunction } from "@tanstack/react-query";
+import axios from "axios";
+
+import { getData } from "common/getData";
 import { MovieDetailsApiResponse } from "../types";
 
 type MovieDetailsKey = ["movieDetails", { id: string | undefined }];

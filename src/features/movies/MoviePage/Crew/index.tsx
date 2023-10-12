@@ -1,10 +1,10 @@
-import { detailsTilesPerPage } from "../../../../common/detailsTilesPerPage";
-import { SectionTitle } from "../../../../common/SectionTitle";
-import { GridList } from "../../../../common/GridList";
-import ActorTile from "../../../people/ActorTile";
-import { MovieCrew } from "../../types";
-import useDetailsPagination from "../../../../common/useDetailsPagination";
-import DetailsPagination from "../../../../common/DetailsPagination";
+import { MovieCrew } from "features/movies/types";
+import { detailsTilesPerPage } from "common/detailsTilesPerPage";
+import { SectionTitle } from "common/SectionTitle";
+import { GridList } from "common/GridList";
+import ActorTile from "features/people/ActorTile";
+import useDetailsPagination from "common/useDetailsPagination";
+import DetailsPagination from "common/DetailsPagination";
 
 type CrewProps = {
   movieCrew: MovieCrew;

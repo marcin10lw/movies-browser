@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import dummyActorImage from "./images/dummyIcon.svg";
 
 export const ActorPlaceholder = styled.div`

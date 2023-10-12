@@ -1,4 +1,4 @@
-import { Genres, Movie } from "../../common/types";
+import { Genres, Movie } from "common/types";
 
 export type MoviesApiResponse = {
   results: Movie[];

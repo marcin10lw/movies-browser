@@ -2,16 +2,16 @@ import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { QueryClient, useQuery } from "@tanstack/react-query";
 
-import { Loading } from "../../../common/Loading";
-import { Main } from "../../../common/Main";
-import ErrorPage from "../../../common/ErrorPage";
-import PopularPeople from "./PopularPeople";
-import Pagination from "../../../common/Pagination";
-import NoResultsPage from "../../../common/NoResultsPage";
-import searchQueryParamName from "../../../common/searchQueryParamName";
 import { getPeople } from "./getPeople";
 import { PeopleQueryKey } from "../types";
-import useDebounce from "../../../common/useDebounce";
+import useDebounce from "common/useDebounce";
+import searchQueryParamName from "common/searchQueryParamName";
+import { Loading } from "common/Loading";
+import { Main } from "common/Main";
+import ErrorPage from "common/ErrorPage";
+import PopularPeople from "./PopularPeople";
+import Pagination from "common/Pagination";
+import NoResultsPage from "common/NoResultsPage";
 
 const PopularPeoplePage = () => {
   const [searchParams] = useSearchParams({ page: "1" });

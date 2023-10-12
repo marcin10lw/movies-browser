@@ -1,10 +1,10 @@
-import { detailsTilesPerPage } from "../../../../common/detailsTilesPerPage";
-import { SectionTitle } from "../../../../common/SectionTitle";
-import { GridList } from "../../../../common/GridList";
-import ActorTile from "../../../people/ActorTile";
-import { MovieCast } from "../../types";
-import DetailsPagination from "../../../../common/DetailsPagination";
-import useDetailsPagination from "../../../../common/useDetailsPagination";
+import { MovieCast } from "features/movies/types";
+import { detailsTilesPerPage } from "common/detailsTilesPerPage";
+import { SectionTitle } from "common/SectionTitle";
+import { GridList } from "common/GridList";
+import ActorTile from "features/people/ActorTile";
+import DetailsPagination from "common/DetailsPagination";
+import useDetailsPagination from "common/useDetailsPagination";
 
 type CastProps = {
   movieCast: MovieCast;

@@ -3,6 +3,7 @@ import { useState } from "react";
 import Rates from "./Rates";
 import Tags from "./Tags";
 import { MoviePlaceholder } from "../MoviePlaceholder";
+import { GenreIds } from "common/types";
 import {
   MovieInfo,
   Poster,
@@ -12,7 +13,6 @@ import {
   MovieStandbyPoster,
   MoviesStandbyWrapper,
 } from "./styled";
-import { GenreIds } from "../../../common/types";
 
 type MovieTileProps = {
   poster: string;

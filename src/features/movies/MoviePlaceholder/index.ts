@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import posterImage from "./images/dummyIcon.svg";
 
 export const MoviePlaceholder = styled.div`

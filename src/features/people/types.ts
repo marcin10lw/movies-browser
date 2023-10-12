@@ -1,4 +1,4 @@
-import { Movie } from "../../common/types";
+import { Movie } from "common/types";
 
 export type PeopleQueryKey = ["people", { page: number; query: string | null }];
 

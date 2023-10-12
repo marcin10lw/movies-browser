@@ -1,4 +1,4 @@
-import { MovieInfo } from "../../types";
+import { MovieInfo } from "features/movies/types";
 import Rating from "../Rating";
 import {
   PosterWrapper,

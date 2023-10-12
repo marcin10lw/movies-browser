@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import { ReactComponent as Star } from "./star.svg";
 
 export const StyledRates = styled.div`

@@ -1,7 +1,7 @@
-import { Container } from "../../../../common/Container";
-import ActorTile from "../../ActorTile/index";
-import { GridList } from "../../../../common/GridList";
-import { SectionTitle } from "../../../../common/SectionTitle";
+import { Container } from "common/Container";
+import ActorTile from "features/people/ActorTile";
+import { GridList } from "common/GridList";
+import { SectionTitle } from "common/SectionTitle";
 import { Person } from "../../types";
 
 type PopularPeopleProps = {

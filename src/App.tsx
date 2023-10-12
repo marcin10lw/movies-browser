@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { fetchGenres } from "./features/movies/genresSlice";
 
+import { fetchGenres } from "./features/movies/genresSlice";
 import Header from "./common/Header";
 import PopularMoviesPage from "./features/movies/PopularMoviesPage";
 import PopularPeoplePage from "./features/people/PopularPeoplePage";

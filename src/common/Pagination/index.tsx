@@ -1,6 +1,6 @@
 import { useSearchParams } from "react-router-dom";
-import searchQueryParamName from "../searchQueryParamName";
 
+import searchQueryParamName from "../searchQueryParamName";
 import {
   StyledPagination,
   ButtonsWrapper,

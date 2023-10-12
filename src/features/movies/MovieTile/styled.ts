@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
+import { Link } from "react-router-dom";
+
 import { MoviePlaceholder } from "../MoviePlaceholder";
 
 export const StyledMovieTile = styled(Link)`

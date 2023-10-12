@@ -1,5 +1,4 @@
 import { detailsTilesPerPage } from "../detailsTilesPerPage";
-
 import {
   Button,
   ButtonsWrapper,

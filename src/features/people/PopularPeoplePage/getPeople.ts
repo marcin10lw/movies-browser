@@ -1,6 +1,7 @@
 import { QueryFunction } from "@tanstack/react-query";
-import { getData } from "../../../common/getData";
+
 import { PeopleApiResponse, PeopleQueryKey } from "../types";
+import { getData } from "common/getData";
 
 export const getPeople: QueryFunction<
   PeopleApiResponse,

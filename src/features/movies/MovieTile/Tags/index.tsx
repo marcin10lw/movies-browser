@@ -1,8 +1,8 @@
-import { selectGenreByIds } from "../../genresSlice";
 import { useSelector } from "react-redux";
 
-import { GenreIds } from "../../../../common/types";
-import { RootState } from "../../../../store";
+import { GenreIds } from "common/types";
+import { RootState } from "store";
+import { selectGenreByIds } from "features/movies/genresSlice";
 import { StyledTags, Tag } from "./styled";
 
 type TagsProps = {

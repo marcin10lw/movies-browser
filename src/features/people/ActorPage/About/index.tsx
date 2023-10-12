@@ -1,5 +1,5 @@
-import { ActorPlaceholder } from "../../ActorPlaceholder";
-import { ActorInfo } from "../../types";
+import { ActorPlaceholder } from "features/people/ActorPlaceholder";
+import { ActorInfo } from "features/people/types";
 import {
   StyledAbout,
   ActorBio,
